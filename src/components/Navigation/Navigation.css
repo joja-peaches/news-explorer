@@ -1,0 +1,99 @@
+.navigation {
+    width: 1440px;
+    height: 80px;
+
+}
+
+.navigation__link-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    height: 80px;
+    border-bottom: 1px solid #D1D2D6;
+    padding: 0 104px 0;
+}
+
+.navigation__logo {
+    margin: 0;
+    font-family: 'RobotoSlab', Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 700;
+    color: #FFF;
+}
+
+.navigation__links {
+    display: flex;
+    column-gap: 32px
+}
+
+.navigation__links__current-page {
+    border-bottom: solid 3px;;
+}
+
+.navigation__links__home {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    color: #FFF;
+    background: none;
+    border: none;
+    padding: 0;
+    height: 80px;
+}
+
+.navigation__links__sign-in {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    color: #FFF;
+    background: none;
+    padding: 0;
+    border: 1px;
+    border-style: solid;
+    border-color: #FFF;
+    border-radius: 100px;
+    padding: 12px;
+    border: 1px;
+    border-style: solid;
+    border-color: #FFF;
+    border-radius: 100px;
+    width: 176px;
+    height: 48px;
+    box-sizing: border-box;
+    align-self: center;
+}
+
+.navigation__links__saved-articles {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    color: #FFF;
+    background: none;
+    border: none;
+    padding: 0;
+    height: 80px;
+    text-align: center;;
+}
+
+.navigation__links__profile {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    color: #FFF;
+    background: none;
+    padding: 12px;
+    border: 1px;
+    border-style: solid;
+    border-color: #FFF;
+    border-radius: 100px;
+    width: 176px;
+    height: 48px;
+    box-sizing: border-box;
+    align-self: center;
+}

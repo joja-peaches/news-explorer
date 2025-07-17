@@ -1,0 +1,24 @@
+.preloader {
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+    background-color: #F5F6F7;
+    align-items: center;
+    width: 1440px;
+    height: 282px;
+}
+
+.preloader__loading-image {
+    height: 74px;
+    width: 74px;
+    margin: 80px 0 0;
+}
+
+.preloader__text {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #B6BCBF;
+    margin-top: 16px;
+}

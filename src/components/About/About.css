@@ -1,0 +1,38 @@
+.about {
+    display: flex;
+    align-items: center;
+    justify-content: center;;
+    height: 624px;
+    width: 1440px;
+    column-gap: 56px;;
+}
+
+.about__portrait {
+    width: 464px;
+    height: 464px;
+    border-radius: 1000px;
+}
+
+.about__description {
+    display: flex;
+    flex-direction: column;;
+}
+
+.about__title {
+    font-family: 'RobotoSlab', Georgia, 'Times New Roman', Times, serif;
+    font-size: 40px;
+    line-height: 40px;
+    font-weight: 400;
+    color: #1A1B22;
+    margin: 0;
+}
+
+.about__text {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #1A1B22;
+    margin: 24px 0 0;
+    width: 600px;
+}
