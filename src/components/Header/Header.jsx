@@ -2,10 +2,14 @@ import "./Header.css";
 import Navigation from "../Navigation/Navigation";
 import SearchForm from "../SearchForm/SearchForm";
 
-function Header() {
+function Header({ isLoggedIn, handleSignInClick, currentUser }) {
   return (
     <header className="header">
-      <Navigation />
+      <Navigation 
+        isLoggedIn={isLoggedIn}
+        handleSignInClick={handleSignInClick}
+        currentUser={currentUser}
+      />
       <section className="header__text-container">
         <h1 className="header__title">What's going on in the world?</h1>
         <h2 className="header__subtitle">
