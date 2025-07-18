@@ -52,7 +52,7 @@ function App() {
       />
       <Preloader />
       <About />
-      {/* <NewsCards /> */}
+      <NewsCards />
       {/* <Main /> */}
       <Footer />
       <SignUpModal
