@@ -28,8 +28,9 @@ function SignUpModal({
     >
       <label className="modal__label">
         Email
-        <input type="email" name="email" className="modal__input" required />
       </label>
+      <input type="email" name="email" className="modal__input" required />
+
       <label className="modal__label">
         Password
         <input

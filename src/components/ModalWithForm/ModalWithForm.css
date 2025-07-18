@@ -26,28 +26,65 @@
     font-size: 24px;
     line-height: 100%;
     color: #1A1B22;
+    margin: 0;
 }
 
 .modal__form {
     display: flex;
     flex-direction: column;
-    row-gap: 31px;
+    row-gap: 22px;
     z-index: 3;
+    box-sizing: border-box;
     width: 430px;
     border-radius: 16px;
     border: none;
-    padding: 34px 36px;
+    padding: 34px 36px 28px;
     background-color: #FFF;
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+    position: relative;
 }
 
 .modal__close-button {
     background-image: url('/src/assets/white-close.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: transparent;
+    border: none;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: -38px;
+    right: -42px;
+    cursor: pointer;
+}
+
+.modal__label {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 100%;
+    color: #2F71E5;
+    margin: 0 0 9px;
+}
+
+.modal__input {
+    padding: 0;
+    width: 358px;
+    border: none;
+    border-bottom: 1px solid rgb(0, 0, 0, .2);
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    margin: 9px 0 0;
+    padding: 0 0 10px;
+    background-color: red;
 }
 
 .modal__submit-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
     row-gap: 16px;
 }
 
@@ -56,12 +93,15 @@
     height: 64px;
     border-radius: 100px;
     background-color: #2F71E5;
+    border: none;
     box-shadow: 0 5px 15px rgba(47, 26, 57, 0.2);
     color: #FFF;
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
     font-weight: 500;
     font-size: 18px;
     line-height: 24px;
+    padding: 0;
+    margin: 8px 0 0;
 }
 
 .modal__alternative-button-container {
@@ -69,13 +109,28 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 100%;
+    display: flex;
+    height: 20px;
+    justify-content: center;
+    align-items: center;
 }
 
 .modal__alternative-button-text {
     color: #000;
+    margin: 0;
 }
 
 .modal__alternative-button {
     color: #2F71E5;
     cursor: pointer;
+    padding: 0;
+    background: none;
+    border: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 3rem white inset !important;
 }

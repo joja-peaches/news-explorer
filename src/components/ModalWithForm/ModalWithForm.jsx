@@ -32,7 +32,7 @@ function ModalWithForm({
             {submitText}
           </button>
           <div className="modal__alternative-button-container">
-            <p className="modal__alternative-button-text">or </p>
+            <p className="modal__alternative-button-text">or&nbsp;</p>
             <button
               className="modal__alternative-button"
               type="button"
