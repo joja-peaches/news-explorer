@@ -28,9 +28,8 @@ function SignUpModal({
     >
       <label className="modal__label">
         Email
+        <input type="email" name="email" className="modal__input" required />
       </label>
-      <input type="email" name="email" className="modal__input" required />
-
       <label className="modal__label">
         Password
         <input
@@ -39,6 +38,10 @@ function SignUpModal({
           className="modal__input"
           required
         />
+      </label>
+      <label className="modal__label">
+        Username
+        <input type="text" name="username" className="modal__input" required />
       </label>
     </ModalWithForm>
   );

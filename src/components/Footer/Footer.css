@@ -35,4 +35,5 @@
 .fooger__navigation__social {
     height: 20px;
     width: 20px;
+    cursor: pointer;
 }

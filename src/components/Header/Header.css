@@ -9,6 +9,13 @@
     align-items: center;
 }
 
+.header__saved-news {
+    background-image: none;
+    background-color: white;
+    box-shadow: 0 -1 0 #D1D2D6;
+    height: 80px;
+}
+
 .header__text-container {
     padding: 80px 416px 0;
 }

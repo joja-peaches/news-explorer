@@ -11,8 +11,20 @@ function Footer() {
       <div className="footer__navigation">
         <p className="footer__navigation__link">Home</p>
         <p className="footer__navigation__link">TripleTen</p>
-        <img src={GitHub} alt="GitHub Logo" className="footer__navigation__social" />
-        <img src={Facebook} alt="Facebook Logo" className="fooger__navigation__social" />
+        <a href="https://github.com/joja-peaches">
+          <img
+            src={GitHub}
+            alt="GitHub Logo"
+            className="footer__navigation__social"
+          />
+        </a>
+        <a href="https://www.facebook.com/georgialloydphoto">
+          <img
+            src={Facebook}
+            alt="Facebook Logo"
+            className="footer__navigation__social"
+          />
+        </a>
       </div>
     </footer>
   );

@@ -78,7 +78,11 @@
     line-height: 100%;
     margin: 9px 0 0;
     padding: 0 0 10px;
-    background-color: red;
+}
+
+.modal__input:focus {
+    outline: none;
+    border-bottom: 1px solid #000;
 }
 
 .modal__submit-container {
