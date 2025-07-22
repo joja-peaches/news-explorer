@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useContext } from "react";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import "./Navigation.css";
@@ -8,15 +8,17 @@ import signOutDark from "../../assets/dark-logout.png";
 function Navigation({
   isLoggedIn,
   handleSignInClick,
+  handleSignInSubmit,
   currentUser,
   isActivePage,
   handleHomeClick,
   handleSavedArticlesClick,
   handleSignOut
 }) {
+  const location = useLocation();
   let elementsToRender;
 
-  if (!isLoggedIn && isActivePage === "home") {
+    if (!isLoggedIn && location.pathname === "/") {
     elementsToRender = (
       <>
         <button className="navigation__links__home navigation__links__active">
@@ -30,7 +32,7 @@ function Navigation({
         </button>
       </>
     );
-  } else if (isLoggedIn && isActivePage === "home") {
+    } else if (isLoggedIn && location.pathname === "/") {
     elementsToRender = (
       <>
         <Link to="/">
@@ -67,7 +69,7 @@ function Navigation({
         </button>
       </>
     );
-  } else if (isActivePage === "savedNews") {
+    } else if (isLoggedIn && location.pathname === "/saved-news") {
     elementsToRender = (
       <>
         <Link to="/">

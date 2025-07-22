@@ -51,9 +51,12 @@
 
 .search__form__submit:hover {
     cursor: pointer;
+    background-color: #347EFF;
+    border-color: #347EFF;
 }
 
 
 .search__form__submit:active {
-
+    background-color: #2A65CC;
+    border-color: #2A65CC;
 }

@@ -12,10 +12,11 @@ import SavedNews from "../SavedNews/SavedNews";
 import Footer from "../Footer/Footer";
 import SignUpModal from "../SignUpModal/SignUpModal";
 import SignInModal from "../SignInModal/SignInModal";
+import SuccessModal from "../SuccessModal/SuccessModal";
 
 function App() {
   const [count, setCount] = useState(0);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const [isActivePage, setIsActivePage] = useState("home");
   const [activeModal, setActiveModal] = useState(null);
@@ -53,9 +54,9 @@ function App() {
     setIsLoggedIn(true);
   };
 
-  const handleSignUpSubmit = () => {
-    closeActiveModal();
-    setIsLoggedIn(true);
+  const handleSignUpSubmit = (e) => {
+    e.preventDefault();
+    setActiveModal("success");
   };
 
   const handleSignOut = () => {
@@ -63,15 +64,15 @@ function App() {
     setCurrentUser(null);
     setSavedArticles({});
     setIsActivePage("home");
-  }
+  };
 
   const handleActivePage = () => {
-    if (currentPath = "/") {
-      setIsActivePage("home")
+    if ((currentPath = "/")) {
+      setIsActivePage("home");
     } else {
-      setIsActivePage("savedNews")
+      setIsActivePage("savedNews");
     }
-  }
+  };
 
   return (
     <div className="app">
@@ -84,15 +85,27 @@ function App() {
         handleSavedArticlesClick={handleSavedArticlesClick}
         handleSignOut={handleSignOut}
         handleActivePage={handleActivePage}
+        handleSignInSubmit={handleSignInSubmit}
       />
       <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/saved-news" element={<SavedNews />} />
+        <Route
+          path="/"
+          element={<Main isLoggedIn={isLoggedIn} handleSignInSubmit={handleSignInSubmit} handleSignInClick={handleSignInClick} />}
+        />
+        <Route
+          path="/saved-news"
+          element={<SavedNews />}
+        />
       </Routes>
       <Footer />
 
       {/* <Preloader /> */}
       {/* <NotFound /> */}
+      <SuccessModal
+        isOpen={activeModal === "success"}
+        onClose={closeActiveModal}
+        handleSignInClick={handleSignInClick}
+      />
 
       <SignUpModal
         isOpen={activeModal === "signUp"}

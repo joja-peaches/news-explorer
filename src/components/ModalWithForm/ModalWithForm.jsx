@@ -12,12 +12,12 @@ function ModalWithForm({
   children,
   handleSignInClick,
   handleSignUpClick,
-  //   isFormValid,
 }) {
   useModalClose(isOpen, onClose);
+
   return (
     <dialog className={`modal ${isOpen ? "modal_opened" : ""}`}>
-      <form className="modal__form" onSubmit={onSubmit}>
+      <form className="modal__form">
         <h3 className="modal__title">{title}</h3>
         <button className="modal__close-button" onClick={onClose} />
         {children}
@@ -26,7 +26,7 @@ function ModalWithForm({
             className="modal__submit-button"
             type="submit"
             onClick={
-              submitText === "Sign up" ? handleSignUpClick : handleSignInClick
+              submitText === "Sign up" ? handleSignUpClick : onSubmit
             }
           >
             {submitText}

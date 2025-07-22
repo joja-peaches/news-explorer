@@ -1,14 +1,45 @@
+import { useLocation } from "react-router-dom";
+import { useState } from "react";
 import "./NewsCard.css";
 import georgia from "../../assets/georgia-lloyd-headshot.jpg";
-import bookmark from "../../assets/bookmark.svg";
-function NewsCard() {
+
+function NewsCard({ handleSignInClick, isLoggedIn }) {
+  const [isClicked, setIsClicked] = useState(false);
+
+  const savedButtonClick = () => {
+    setIsClicked(!isClicked);
+  };
+  console.log(isLoggedIn);
+  const location = useLocation();
+
+  let elementsToRender;
+  if (location.pathname === "/" && !isLoggedIn) {
+    elementsToRender = (
+      <>
+        <button onClick={savedButtonClick} className="news-card__save-button" />
+        <button
+          onClick={handleSignInClick}
+          className={`news-card__sign-in-button ${
+            isClicked ? "news-card__sign-in-button_visible" : ""
+          }`}
+        >
+          Sign in to save articles
+        </button>
+      </>
+    );
+  } else if (location.pathname === "/" && isLoggedIn) {
+    elementsToRender = (
+      <button onClick={savedButtonClick} className="news-card__save-button" />
+    );
+  }
+
   return (
     <section className="news-card">
-      {/* <img src={bookmark} alt="Simple lined image for bookmarking" className="news-card___save-button" /> */}
-      <button className="news-card__save-button" />
-      <button className="news-card__sign-in-button">
+      {/* <button className="news-card__save-button" />
+      <button onClick={handleSignInClick} className="news-card__sign-in-button">
         Sign in to save articles
-      </button>
+      </button> */}
+      {elementsToRender}
       <img src={georgia} alt="" className="news-card__image" />
       <div className="news-card__container">
         <p className="news-card__container__date">Date</p>

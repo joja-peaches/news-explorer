@@ -32,7 +32,11 @@
     color: #1A1B22;
     align-self: center;
     border-radius: 80px;
-    background-color: #E8E8E8;
+    background-color: #FFF;
     border: none;
     cursor: pointer;
+}
+
+.news-cards__button:hover {
+    background-color: #E8E8E8;
 }

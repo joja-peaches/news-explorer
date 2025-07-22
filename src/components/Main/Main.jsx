@@ -2,10 +2,10 @@ import "./Main.css";
 import About from "../About/About";
 import NewsCards from "../NewsCards/NewsCards";
 
-function Main() {
+function Main({ handleSignInClick, isLoggedIn }) {
   return (
     <>
-      <NewsCards />
+      <NewsCards isLoggedIin={isLoggedIn} handleSignInClick={handleSignInClick} />
       <About />
     </>
   );

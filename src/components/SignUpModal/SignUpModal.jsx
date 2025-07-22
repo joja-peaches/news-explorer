@@ -1,4 +1,3 @@
-import "./SignUpModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 function SignUpModal({
@@ -8,11 +7,7 @@ function SignUpModal({
   name,
   submitText,
   buttonText,
-  onSubmit,
-  children,
-  handleLoginClick,
-  handleSignUpClick,
-  isFormValid,
+  onSubmit
 }) {
   return (
     <ModalWithForm
@@ -23,8 +18,6 @@ function SignUpModal({
       submitText={submitText}
       buttonText={buttonText}
       onSubmit={onSubmit}
-      handleSignUpClick={handleSignUpClick}
-      //   isFormValid={isFormValid}
     >
       <label className="modal__label">
         Email

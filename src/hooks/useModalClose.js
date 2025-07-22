@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 
 function useModalClose(isOpen, onClose) {
-
   useEffect(() => {
     if (!isOpen) return;
 
@@ -12,7 +11,10 @@ function useModalClose(isOpen, onClose) {
     };
 
     const handleOverlay = (e) => {
+      console.log(e.target.className);
       if (e.target.classList.contains("modal")) {
+        onClose();
+      } else if (e.target.classList.contains("success-modal")) {
         onClose();
       }
     };

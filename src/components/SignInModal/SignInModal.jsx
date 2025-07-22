@@ -1,4 +1,3 @@
-import "./SignInModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 function SignInModal({
@@ -10,6 +9,7 @@ function SignInModal({
   buttonText,
   onSubmit,
   handleSignInClick,
+  handleSignInSubmit,
   handleSignUpClick,
 //   isFormValid,
 }) {
@@ -23,6 +23,7 @@ function SignInModal({
       buttonText={buttonText}
       onSubmit={onSubmit}
       handleSignUpClick={handleSignUpClick}
+      handleSignInSubmit={handleSignInSubmit}
     //   isFormValid={isFormValid}
     >
       <label className="modal__label">

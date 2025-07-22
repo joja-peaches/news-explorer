@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { useState } from "react";
+
 import "./Header.css";
 import Navigation from "../Navigation/Navigation";
 import SearchForm from "../SearchForm/SearchForm";
@@ -6,15 +8,17 @@ import SearchForm from "../SearchForm/SearchForm";
 function Header({
   isLoggedIn,
   handleSignInClick,
+  handleSignInSubmit,
   currentUser,
   isActivePage,
   handleHomeClick,
   handleSavedArticlesClick,
   handleSignOut
 }) {
+  const location = useLocation();
   let elementsToRender;
 
-  if (isActivePage === "home") {
+    if (location.pathname === "/") {
     elementsToRender = (
       <>
         <section className="header__text-container">
@@ -43,6 +47,7 @@ function Header({
         handleHomeClick={handleHomeClick}
         handleSavedArticlesClick={handleSavedArticlesClick}
         handleSignOut={handleSignOut}
+        handleSignInSubmit={handleSignInSubmit}
       />
       {elementsToRender}
     </header>
