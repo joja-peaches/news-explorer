@@ -26,6 +26,79 @@
     background-image: url('/src/assets/bookmark-hover.svg');
 }
 
+.news-card__save-button__saved {
+    background-image: url('/src/assets/bookmark-marked.svg');
+}
+
+.news-card__category {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 500;
+    color: #000;
+    border: none;
+    background-color: #fff;
+    padding: 8px 22px;
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    border-radius: 10px;
+    max-width: 140px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.news-card__trash-button {
+    position: absolute;
+    background-image: url('/src/assets/trash-light.svg');
+    background-size: 24px 24px;
+    background-position: center;
+    background-color: #fff;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    top: 24px;
+    right: 24px;
+    padding: 0;
+}
+
+.news-card__trash-button:hover {
+    background-image: url('/src/assets/trash-dark.svg');
+}
+
+.news-card__trash-button:active {
+    background-image: url('/src/assets/trash-dark.svg');
+}
+
+.news-card__remove-button {    
+    position: absolute;
+    top: 24px;
+    right: 69px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    height: 40px;
+    box-shadow: 0 10px 22px rgb(59, 74, 116, .1);
+    padding: 11px 26px;
+    background-color: #fff;
+    color: #000;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 100%;
+    font-weight: 500;
+    visibility: hidden;
+}
+
+.news-card__remove-button_visible {
+    visibility: visible;
+}
+
 .news-card__sign-in-button {
     position: absolute;
     top: 24px;

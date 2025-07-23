@@ -12,14 +12,15 @@ function About() {
       <section className="about__description">
         <h1 className="about__title">About the author</h1>
         <p className="about__text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
-          officiis, corporis ad iste commodi incidunt consequatur fugit
-          consequuntur voluptate, neque eveniet? Fuga hic velit eaque, eos amet
-          ad sequi modi. Lorem ipsum dolor sit amet consectetur adipisicing
-          elit. Mollitia cupiditate a saepe. Sit culpa perspiciatis sed,
-          accusantium tenetur, aspernatur dolorum laudantium voluptate totam
-          laboriosam aliquam? Necessitatibus laborum aliquid nobis. Doloribus?
-          Lore
+          Georgia Lloyd is a full stack web developer with a love for clean
+          design and beautiful aesthetics. With a background in event and
+          fashion photography, Georgia recently dove into the world of tech to
+          blend her artistic flair with her desire to build helpful, usable
+          products.
+          <br />
+          <br />
+          She currently resides just outside Austin, Texas and spends her free
+          time with her cat and dog, playing piano, and making art.
         </p>
       </section>
     </article>

@@ -12,12 +12,19 @@ function ModalWithForm({
   children,
   handleSignInClick,
   handleSignUpClick,
+  handleSignUpSubmit,
+  handleSignInSubmit,
 }) {
   useModalClose(isOpen, onClose);
 
   return (
     <dialog className={`modal ${isOpen ? "modal_opened" : ""}`}>
-      <form className="modal__form">
+      <form
+        className="modal__form"
+        onSubmit={
+          submitText === "Sign up" ? handleSignUpSubmit : handleSignInSubmit
+        }
+      >
         <h3 className="modal__title">{title}</h3>
         <button className="modal__close-button" onClick={onClose} />
         {children}
@@ -25,9 +32,9 @@ function ModalWithForm({
           <button
             className="modal__submit-button"
             type="submit"
-            onClick={
-              submitText === "Sign up" ? handleSignUpClick : onSubmit
-            }
+            // onClick={
+            //   submitText === "Sign up" ? handleSignUpClick : onSubmit
+            // }
           >
             {submitText}
           </button>
@@ -37,7 +44,7 @@ function ModalWithForm({
               className="modal__alternative-button"
               type="button"
               onClick={
-                buttonText === "Sign in "
+                buttonText === "Sign in"
                   ? handleSignInClick
                   : handleSignUpClick
               }

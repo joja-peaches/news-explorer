@@ -3,15 +3,20 @@ import { useState } from "react";
 import "./NewsCard.css";
 import georgia from "../../assets/georgia-lloyd-headshot.jpg";
 
-function NewsCard({ handleSignInClick, isLoggedIn }) {
-  const [isClicked, setIsClicked] = useState(false);
+function NewsCard({ handleSignInClick, isLoggedIn, handleSave, handleRemoveSaved, isSaved }) {
+  const [isSaveClicked, setisSaveClicked] = useState(false);
+  const [isTrashClicked, setIsTrashClicked] = useState(false);
 
   const savedButtonClick = () => {
-    setIsClicked(!isClicked);
+    setisSaveClicked(!isSaveClicked);
   };
-  console.log(isLoggedIn);
-  const location = useLocation();
 
+  const trashButtonClick = () => {
+    setIsTrashClicked(!isTrashClicked);
+  };
+
+  const location = useLocation();
+  console.log(isLoggedIn);
   let elementsToRender;
   if (location.pathname === "/" && !isLoggedIn) {
     elementsToRender = (
@@ -20,7 +25,7 @@ function NewsCard({ handleSignInClick, isLoggedIn }) {
         <button
           onClick={handleSignInClick}
           className={`news-card__sign-in-button ${
-            isClicked ? "news-card__sign-in-button_visible" : ""
+            isSaveClicked ? "news-card__sign-in-button_visible" : ""
           }`}
         >
           Sign in to save articles
@@ -29,16 +34,32 @@ function NewsCard({ handleSignInClick, isLoggedIn }) {
     );
   } else if (location.pathname === "/" && isLoggedIn) {
     elementsToRender = (
-      <button onClick={savedButtonClick} className="news-card__save-button" />
+      <button onClick={handleSave} className={`news-card__save-button ${isSaved ? 'news-card__save-button__saved' : ''}`} />
+    );
+  } else if (location.pathname === "/saved-news" && isLoggedIn) {
+    elementsToRender = (
+      <>
+        <button className="news-card__category">
+          Nature
+        </button>
+        <button
+          onClick={trashButtonClick}
+          className="news-card__trash-button"
+        />
+        <button
+          onClick={handleRemoveSaved}
+          className={`news-card__remove-button ${
+            isTrashClicked ? "news-card__remove-button_visible" : ""
+          }`}
+        >
+          Remove from saved
+        </button>
+      </>
     );
   }
 
   return (
     <section className="news-card">
-      {/* <button className="news-card__save-button" />
-      <button onClick={handleSignInClick} className="news-card__sign-in-button">
-        Sign in to save articles
-      </button> */}
       {elementsToRender}
       <img src={georgia} alt="" className="news-card__image" />
       <div className="news-card__container">

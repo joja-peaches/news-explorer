@@ -7,7 +7,8 @@ function SignUpModal({
   name,
   submitText,
   buttonText,
-  onSubmit
+  handleSignInSubmit,
+  handleSignUpSubmit,
 }) {
   return (
     <ModalWithForm
@@ -17,7 +18,8 @@ function SignUpModal({
       name={name}
       submitText={submitText}
       buttonText={buttonText}
-      onSubmit={onSubmit}
+      handleSignInSubmit={handleSignInSubmit}
+      handleSignUpSubmit={handleSignUpSubmit}
     >
       <label className="modal__label">
         Email

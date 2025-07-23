@@ -13,13 +13,14 @@ import Footer from "../Footer/Footer";
 import SignUpModal from "../SignUpModal/SignUpModal";
 import SignInModal from "../SignInModal/SignInModal";
 import SuccessModal from "../SuccessModal/SuccessModal";
+import ProtectedRoute from "../ProtectedRoute";
 
 function App() {
-  const [count, setCount] = useState(0);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const [isActivePage, setIsActivePage] = useState("home");
   const [activeModal, setActiveModal] = useState(null);
+  const [isSaved, setIsSaved] = useState(false);
   const [savedArticles, setSavedArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -45,11 +46,21 @@ function App() {
     setIsActivePage("home");
   };
 
+  const handleSave = () => {
+    console.log("saved");
+    setIsSaved(!isSaved);
+  };
+
+  const handleRemoveSave = () => {
+    console.log("removed save");
+  };
+
   const closeActiveModal = () => {
     setActiveModal("");
   };
 
-  const handleSignInSubmit = () => {
+  const handleSignInSubmit = (e) => {
+    e.preventDefault();
     closeActiveModal();
     setIsLoggedIn(true);
   };
@@ -90,11 +101,27 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<Main isLoggedIn={isLoggedIn} handleSignInSubmit={handleSignInSubmit} handleSignInClick={handleSignInClick} />}
+          element={
+            <Main
+              isLoggedIn={isLoggedIn}
+              handleSignInSubmit={handleSignInSubmit}
+              handleSignInClick={handleSignInClick}
+              handleSave={handleSave}
+              isSaved={isSaved}
+            />
+          }
         />
         <Route
           path="/saved-news"
-          element={<SavedNews />}
+          element={
+            <ProtectedRoute isLoggedIn={isLoggedIn}>
+              <SavedNews
+                isLoggedIn={isLoggedIn}
+                handleRemoveSaved={handleRemoveSave}
+                isSaved={isSaved}
+              />
+            </ProtectedRoute>
+          }
         />
       </Routes>
       <Footer />
@@ -114,7 +141,8 @@ function App() {
         name="signUp"
         submitText="Sign up"
         buttonText="Sign in"
-        onSubmit={handleSignUpSubmit}
+        handleSignInSubmit={handleSignInSubmit}
+        handleSignUpSubmit={handleSignUpSubmit}
         handleSignInClick={handleSignInClick}
       />
       <SignInModal
@@ -124,7 +152,7 @@ function App() {
         name="signIn"
         submitText="Sign in"
         buttonText="Sign up"
-        onSubmit={handleSignInSubmit}
+        handleSignInSubmit={handleSignInSubmit}
         handleSignUpClick={handleSignUpClick}
       />
     </div>

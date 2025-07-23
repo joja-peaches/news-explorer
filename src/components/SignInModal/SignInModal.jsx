@@ -7,11 +7,9 @@ function SignInModal({
   name,
   submitText,
   buttonText,
-  onSubmit,
-  handleSignInClick,
   handleSignInSubmit,
+  handleSignUpSubmit,
   handleSignUpClick,
-//   isFormValid,
 }) {
   return (
     <ModalWithForm
@@ -21,19 +19,13 @@ function SignInModal({
       name={name}
       submitText={submitText}
       buttonText={buttonText}
-      onSubmit={onSubmit}
       handleSignUpClick={handleSignUpClick}
       handleSignInSubmit={handleSignInSubmit}
-    //   isFormValid={isFormValid}
+      handleSignUpSubmit={handleSignUpSubmit}
     >
       <label className="modal__label">
         Email
-        <input
-          type="email"
-          name="email"
-          className="modal__input"
-          required
-        />
+        <input type="email" name="email" className="modal__input" required />
       </label>
       <label className="modal__label">
         Password

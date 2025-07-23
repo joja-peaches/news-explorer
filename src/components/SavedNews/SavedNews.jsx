@@ -1,7 +1,7 @@
 import NewsCard from "../NewsCard/NewsCard";
 import "./SavedNews.css";
 
-function SavedNews() {
+function SavedNews({ isLoggedIn, handleRemoveSaved, isSaved }) {
   return (
     <section className="saved-news">
       <h2 className="saved-news__title">Saved Articles</h2>
@@ -16,14 +16,56 @@ function SavedNews() {
       </p>
       <p className="saved-news__empty">No saved articles yet. </p>
       <section className="saved-news__articles">
-        <NewsCard />
-        <NewsCard />
-        <NewsCard />
-        <NewsCard />
-        <NewsCard />
-        <NewsCard />
-        <NewsCard />
-        <NewsCard />
+        <NewsCard
+          isLoggedIn={isLoggedIn}
+          handleRemoveSaved={handleRemoveSaved}
+          isSaved={isSaved}
+        />
+        <NewsCard
+          isLoggedIn={isLoggedIn}
+          handleRemoveSaved={handleRemoveSaved}
+          isSaved={isSaved}
+        />
+        <NewsCard
+          isLoggedIn={isLoggedIn}
+          handleRemoveSaved={handleRemoveSaved}
+          isSaved={isSaved}
+        />
+        <NewsCard
+          isLoggedIn={isLoggedIn}
+          handleRemoveSaved={handleRemoveSaved}
+          isSaved={isSaved}
+        />
+        <NewsCard
+          isLoggedIn={isLoggedIn}
+          handleRemoveSaved={handleRemoveSaved}
+          isSaved={isSaved}
+        />
+        <NewsCard
+          isLoggedIn={isLoggedIn}
+          handleRemoveSaved={handleRemoveSaved}
+          isSaved={isSaved}
+        />
+        <NewsCard
+          isLoggedIn={isLoggedIn}
+          handleRemoveSaved={handleRemoveSaved}
+          isSaved={isSaved}
+        />
+        <NewsCard
+          isLoggedIn={isLoggedIn}
+          handleRemoveSaved={handleRemoveSaved}
+          isSaved={isSaved}
+        />
+        <NewsCard
+          isLoggedIn={isLoggedIn}
+          handleRemoveSaved={handleRemoveSaved}
+          isSaved={isSaved}
+        />
+        <NewsCard
+          isLoggedIn={isLoggedIn}
+          handleRemoveSaved={handleRemoveSaved}
+          isSaved={isSaved}
+        />
       </section>
       {/* {savedArticles.length > 0 ? (
         <ul className="saved-news__list">
