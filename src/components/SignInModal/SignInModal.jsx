@@ -1,4 +1,6 @@
+import { useEffect, useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import { useFormAndValidation } from "../../hooks/useFormAndValidation";
 
 function SignInModal({
   isOpen,
@@ -11,6 +13,20 @@ function SignInModal({
   handleSignUpSubmit,
   handleSignUpClick,
 }) {
+  const { values, handleChange, setValues, errors, setErrors } =
+    useFormAndValidation({
+      email: "",
+      password: "",
+    });
+
+  const [isFormValid, setIsFormValid] = useState(false);
+
+  useEffect(() => {
+    const hasInput = values.email && values.password;
+    const hasErrors = !!errors.email;
+    setIsFormValid(hasInput && !hasErrors);
+  }, [values, errors]);
+
   return (
     <ModalWithForm
       isOpen={isOpen}
@@ -25,7 +41,17 @@ function SignInModal({
     >
       <label className="modal__label">
         Email
-        <input type="email" name="email" className="modal__input" required />
+        <input
+          type="email"
+          name="email"
+          className="modal__input"
+          placeholder="Enter email"
+          id="login-email"
+          onChange={handleChange}
+          value={values.email}
+          required
+        />
+        {errors.email && <span className="modal__error">{errors.email}</span>}
       </label>
       <label className="modal__label">
         Password
@@ -33,6 +59,10 @@ function SignInModal({
           type="password"
           name="password"
           className="modal__input"
+          placeholder="Enter password"
+          id="login-password"
+          onChange={handleChange}
+          value={values.password}
           required
         />
       </label>

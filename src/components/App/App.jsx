@@ -28,7 +28,7 @@ function App() {
   const [newsArticles, setNewsArticles] = useState([]);
 
   const location = useLocation();
-  const currentPath = location.pathname;
+  let currentPath = location.pathname;
 
   const handleSignUpClick = () => {
     setActiveModal("signUp");
