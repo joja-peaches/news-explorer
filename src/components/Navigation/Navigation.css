@@ -153,12 +153,45 @@
     cursor: pointer;
 }
 
-@media screen and (max-width: 820px) {
+@media screen and (max-width: 768px) {
     .navigation {
-        width: 820px;
+        width: 768px;
     }
 
     .navigation__link-container {
         padding: 0 40px 0;
+        height: 66px;
+    }
+
+    .navigation__links {
+        column-gap: 16px;
+        height: 66px;
+    }
+
+    .navigation__links__home {
+        font-size: 16px;
+        height: 66px;
+    }
+
+    .navigation__links__sign-in {
+        width: 152px;
+        font-size: 16px;
+        height: 40px;
+            padding: 0;
+    }
+
+    .navigation__links__saved-articles {
+        font-size: 16px;
+        height: 66px;
+    }
+
+    .navigation__links__profile {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .navigation {
+        width: 320px;
     }
 }

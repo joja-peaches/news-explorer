@@ -60,4 +60,15 @@
     .header__subtitle {
         padding: 0 0 48px;
     }
+
+    .header__saved-news {
+        height: 66px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .header {
+        width: 320px;
+        height: 536px;
+    }
 }

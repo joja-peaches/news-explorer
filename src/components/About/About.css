@@ -4,7 +4,7 @@
     justify-content: center;;
     height: 624px;
     width: 1440px;
-    column-gap: 56px;;
+    column-gap: 56px;
 }
 
 .about__portrait {
@@ -35,4 +35,36 @@
     color: #1A1B22;
     margin: 24px 0 0;
     width: 600px;
+}
+
+@media screen and (max-width: 768px) {
+    .about {
+        height: 354px;
+        width: 768px;
+        column-gap: 32px;
+        margin: 0 0 16px;
+    }
+
+    .about__title {
+        font-size: 30px;
+        margin: 40px 0 0;
+    }
+
+    .about__text {
+        margin: 16px 0 0;
+        width: 424px;
+    }
+
+    .about__portrait {
+        width: 232px;
+        height: 232px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .about {
+        width: 320px;
+        height: 752px;
+        flex-direction: column;
+    }
 }
