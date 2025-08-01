@@ -1,0 +1,68 @@
+.hamburger-modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    visibility: hidden;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
+}
+
+.hamburger-modal_opened {
+    visibility: visible;
+}
+
+.hamburger-modal__container {
+    position: absolute;
+    width: 430px;
+    height: 182px;
+    border-radius: 16px;
+    background-color: #fff;
+    box-shadow: 0 0 25 rgb(0, 0, 0, .15);
+    box-sizing: border-box;
+    padding: 43px 36px;
+}
+
+.hamburger-modal__close-button {
+    background-image: url('/src/assets/white-close.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: transparent;
+    border: none;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: -38px;
+    right: -42px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.hamburger-modal__title {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 100%;
+    color: #000;
+    margin: 0;
+}
+
+.hamburger-modal__sign-in-button {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 100%;
+    color: #2F71E5;
+    padding: 14px 0 0;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}

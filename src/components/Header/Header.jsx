@@ -13,7 +13,8 @@ function Header({
   isActivePage,
   handleHomeClick,
   handleSavedArticlesClick,
-  handleSignOut
+  handleSignOut,
+  activeModal
 }) {
   const location = useLocation();
   let elementsToRender;
@@ -48,6 +49,7 @@ function Header({
         handleSavedArticlesClick={handleSavedArticlesClick}
         handleSignOut={handleSignOut}
         handleSignInSubmit={handleSignInSubmit}
+        activeModal={activeModal}
       />
       {elementsToRender}
     </header>

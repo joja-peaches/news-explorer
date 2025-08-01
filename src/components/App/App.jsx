@@ -13,6 +13,7 @@ import Footer from "../Footer/Footer";
 import SignUpModal from "../SignUpModal/SignUpModal";
 import SignInModal from "../SignInModal/SignInModal";
 import SuccessModal from "../SuccessModal/SuccessModal";
+import HamburgerModal from "../HamburgerModal/HamburgerModal";
 import ProtectedRoute from "../ProtectedRoute";
 
 function App() {
@@ -36,6 +37,10 @@ function App() {
 
   const handleSignInClick = () => {
     setActiveModal("signIn");
+  };
+
+  const handleHamburgerClick = () => {
+    setActiveModal("hamburger")
   };
 
   const handleSavedArticlesClick = () => {
@@ -97,6 +102,7 @@ function App() {
         handleSignOut={handleSignOut}
         handleActivePage={handleActivePage}
         handleSignInSubmit={handleSignInSubmit}
+        activeModal={activeModal}
       />
       <Routes>
         <Route
@@ -149,6 +155,16 @@ function App() {
         isOpen={activeModal === "signIn"}
         onClose={closeActiveModal}
         title="Sign in"
+        name="signIn"
+        submitText="Sign in"
+        buttonText="Sign up"
+        handleSignInSubmit={handleSignInSubmit}
+        handleSignUpClick={handleSignUpClick}
+      />
+      <HamburgerModal 
+        isOpen={activeModal === "hamburger"}
+        onClose={closeActiveModal}
+        title="HAM"
         name="signIn"
         submitText="Sign in"
         buttonText="Sign up"

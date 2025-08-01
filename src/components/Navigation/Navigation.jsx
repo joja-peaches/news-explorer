@@ -9,15 +9,38 @@ function Navigation({
   isLoggedIn,
   handleSignInClick,
   handleSignInSubmit,
-  currentUser,
   isActivePage,
   handleHomeClick,
   handleSavedArticlesClick,
   handleSignOut,
   handleHamburgerClick,
+  activeModal,
 }) {
   const location = useLocation();
   let elementsToRender;
+  let hamburgerToRender;
+
+  if (activeModal === "signIn" || activeModal === "signUp") {
+    hamburgerToRender = (
+      <div
+        className="navigation__hamburger-menu"
+        onClick={handleHamburgerClick}
+      >
+        <hr className="navigation__hamburger-menu__line" />
+        <hr className="navigation__hamburger-menu__line" />
+      </div>
+    );
+  } else {
+    hamburgerToRender = (
+      <div
+        className="navigation__hamburger-menu"
+        onClick={handleHamburgerClick}
+      >
+        <hr className="navigation__hamburger-menu__line" />
+        <hr className="navigation__hamburger-menu__line" />
+      </div>
+    );
+  }
 
   if (!isLoggedIn && location.pathname === "/") {
     elementsToRender = (
@@ -31,13 +54,14 @@ function Navigation({
         >
           Sign In
         </button>
-        <div
+        {/* <div
           className="navigation__hamburger-menu"
           onClick={handleHamburgerClick}
         >
           <hr className="navigation__hamburger-menu__line" />
           <hr className="navigation__hamburger-menu__line" />
-        </div>
+        </div> */}
+        {hamburgerToRender}
       </>
     );
   } else if (isLoggedIn && location.pathname === "/") {
