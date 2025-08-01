@@ -63,7 +63,7 @@
     }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 321px) {
     .news-cards {
         width: 320px;
         height: auto;
@@ -72,5 +72,20 @@
 
     .news-cards__cards {
         flex-wrap: wrap;
+        justify-content: center;
+        row-gap: 15px;
+        margin: 0 0 16px;
+    }
+
+    .news-cards__title {
+        font-size: 30px;
+        line-height: 34px;
+        margin: 32px 16px 58px;
+    }
+
+    .news-cards__button {
+        width: 288px;
+        height: 54px;
+        margin: 0 0 24px;
     }
 }

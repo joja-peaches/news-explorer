@@ -18,6 +18,7 @@
 
 .header__text-container {
     padding: 80px 416px 0;
+    box-sizing: border-box;
 }
 
 .header__title {
@@ -49,7 +50,7 @@
     .header__title {
         width: 385px;
         font-size: 36px;
-        line-height: 40px;
+        line-height: 40px; 
         padding: 0 0 16px;
     }
 
@@ -66,9 +67,26 @@
     }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 321px) {
     .header {
         width: 320px;
         height: 536px;
+    }
+
+    .header__text-container {
+        padding: 30px 16px 0 19px;
+        width: 320px;
+    }
+
+    .header__title {
+        width: 285px;
+        font-size: 36px;
+        line-height: 40px;
+        padding: 0 0 16px;
+    }
+
+    .header__subtitle {
+        font-size: 18px;
+        padding: 0;
     }
 }

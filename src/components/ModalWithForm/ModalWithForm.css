@@ -69,7 +69,6 @@
 }
 
 .modal__input {
-    padding: 0;
     width: 358px;
     border: none;
     border-bottom: 1px solid rgb(0, 0, 0, .2);
@@ -79,6 +78,10 @@
     line-height: 100%;
     margin: 9px 0 0;
     padding: 0 0 10px;
+}
+
+.modal__label-password {
+    margin-top: 0px;
 }
 
 .modal__input:focus {
@@ -149,4 +152,66 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 3rem white inset !important;
+}
+
+@media screen and (max-width: 321px) {
+    .modal {
+        width: 320px;
+        height: 100%;
+        box-sizing: border-box;
+    }
+
+    .modal__title {
+        color: #000;
+        margin: 0 0 18px;
+    }
+
+    .modal__form {
+        row-gap: 22px;
+        width: 320px;
+        height: 100%;
+        padding: 16px 17px;
+        top: 56px;
+        row-gap: 0px;
+    }
+
+    .modal_opened {
+        padding: 0;
+    }
+
+    .modal__close-button {
+        background-color: transparent;
+        width: 24px;
+        height: 24px;
+        top: -40px;
+        right: 16px ;
+        z-index: 5;
+        right: 16 px;
+        cursor: pointer;
+    }
+
+    .modal__label {
+        margin: 0;
+    }
+
+    .modal__input {
+        width: 288px;
+        padding: 8px 0 10px;
+        margin: 0 0 18px;
+        color: rgb(0, 0, 0, .2);
+    }
+
+    .modal__label-password {
+        margin-top: 12px;
+    }
+
+    .modal__error {
+        left: 16px;
+        top: 138px
+    }
+
+    .modal__submit-button {
+        width: 288px;
+        margin: 5px 0 0;
+    }
 }

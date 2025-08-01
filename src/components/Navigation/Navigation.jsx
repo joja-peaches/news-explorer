@@ -13,12 +13,13 @@ function Navigation({
   isActivePage,
   handleHomeClick,
   handleSavedArticlesClick,
-  handleSignOut
+  handleSignOut,
+  handleHamburgerClick,
 }) {
   const location = useLocation();
   let elementsToRender;
 
-    if (!isLoggedIn && location.pathname === "/") {
+  if (!isLoggedIn && location.pathname === "/") {
     elementsToRender = (
       <>
         <button className="navigation__links__home navigation__links__active">
@@ -30,9 +31,16 @@ function Navigation({
         >
           Sign In
         </button>
+        <div
+          className="navigation__hamburger-menu"
+          onClick={handleHamburgerClick}
+        >
+          <hr className="navigation__hamburger-menu__line" />
+          <hr className="navigation__hamburger-menu__line" />
+        </div>
       </>
     );
-    } else if (isLoggedIn && location.pathname === "/") {
+  } else if (isLoggedIn && location.pathname === "/") {
     elementsToRender = (
       <>
         <Link to="/">
@@ -67,9 +75,16 @@ function Navigation({
             onClick={handleSignOut}
           />
         </button>
+        <div
+          className="navigation__hamburger-menu"
+          onClick={handleHamburgerClick}
+        >
+          <hr className="navigation__hamburger-menu__line" />
+          <hr className="navigation__hamburger-menu__line" />
+        </div>
       </>
     );
-    } else if (isLoggedIn && location.pathname === "/saved-news") {
+  } else if (isLoggedIn && location.pathname === "/saved-news") {
     elementsToRender = (
       <>
         <Link to="/">
@@ -94,6 +109,13 @@ function Navigation({
             onClick={handleSignOut}
           />
         </button>
+        <div
+          className="navigation__hamburger-menu"
+          onClick={handleHamburgerClick}
+        >
+          <hr className="navigation__hamburger-menu__line navigation__hamburger-menu__line-dark" />
+          <hr className="navigation__hamburger-menu__line navigation__hamburger-menu__line-dark" />
+        </div>
       </>
     );
   }

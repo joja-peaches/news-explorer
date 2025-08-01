@@ -14,6 +14,7 @@
     line-height: 22px;
     font-weight: 400;
     color: #B6BCBF;
+    width: 288px;
 }
 
 .footer__navigation {
@@ -70,11 +71,11 @@
     }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 321px) {
     .footer {
         height: 176px;
         width: 320px;
-        padding: 0 40px;
+        padding: 0 16px 0;
         position: relative;
     }
 
@@ -86,12 +87,19 @@
     }
 
     .footer__navigation {
-        /* margin: 0 0 38px;
-        justify-content: space-between; */
+        align-items: flex-start;
+        column-gap: 16px;
+        position: absolute;
+        top: 20px;
+    }
+
+    .footer__navigation__link-container {
+        flex-direction: column;
+        row-gap: 30px ;    
+        width: 200px;
     }
 
     .footer__navigation__link {
-        line-height: 48px;
         margin: 0;
         padding: 0;
     }
@@ -101,10 +109,8 @@
         width: 20px;
         background-size: cover;
         background-image: url("../../assets/facebook-logo.png");
+        margin-left: 10px;
     }
 
-    .footer__navigation__link-container {
-        flex-direction: column;
-  
-    }
+
 }

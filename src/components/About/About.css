@@ -61,10 +61,19 @@
     }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 321px) {
     .about {
         width: 320px;
         height: 752px;
         flex-direction: column;
+    }
+
+    .about__title {
+        max-width: 321px;
+    }
+
+    .about__text {
+        margin: 16px 0 0;
+        width: 320px;
     }
 }

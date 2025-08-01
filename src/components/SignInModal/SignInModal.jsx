@@ -53,7 +53,7 @@ function SignInModal({
         />
         {errors.email && <span className="modal__error">{errors.email}</span>}
       </label>
-      <label className="modal__label">
+      <label className="modal__label modal__label-password">
         Password
         <input
           type="password"
