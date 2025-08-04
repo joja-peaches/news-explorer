@@ -1,9 +1,22 @@
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
+import { formatDate } from "../../utils/helpers";
 import "./NewsCard.css";
-import georgia from "../../assets/georgia-lloyd-headshot.jpg";
 
-function NewsCard({ handleSignInClick, isLoggedIn, handleSave, handleRemoveSaved, isSaved }) {
+function NewsCard({
+  handleSignInClick,
+  isLoggedIn,
+  handleSave,
+  handleRemoveSaved,
+  isSaved,
+  title,
+  date,
+  source,
+  imageUrl,
+  blurb,
+  altText,
+  url,
+}) {
   const [isSaveClicked, setisSaveClicked] = useState(false);
   const [isTrashClicked, setIsTrashClicked] = useState(false);
 
@@ -15,8 +28,15 @@ function NewsCard({ handleSignInClick, isLoggedIn, handleSave, handleRemoveSaved
     setIsTrashClicked(!isTrashClicked);
   };
 
+  const formattedDate = formatDate(date);
+
+  const cleanBlurb = (text) => {
+    return text.replace(/\[\+\d+\s+chars\]/, "").trim();
+  };
+
+  const cleanedBlurb = cleanBlurb(blurb);
+
   const location = useLocation();
-  console.log(isLoggedIn);
   let elementsToRender;
   if (location.pathname === "/" && !isLoggedIn) {
     elementsToRender = (
@@ -34,14 +54,17 @@ function NewsCard({ handleSignInClick, isLoggedIn, handleSave, handleRemoveSaved
     );
   } else if (location.pathname === "/" && isLoggedIn) {
     elementsToRender = (
-      <button onClick={handleSave} className={`news-card__save-button ${isSaved ? 'news-card__save-button__saved' : ''}`} />
+      <button
+        onClick={handleSave}
+        className={`news-card__save-button ${
+          isSaved ? "news-card__save-button__saved" : ""
+        }`}
+      />
     );
   } else if (location.pathname === "/saved-news" && isLoggedIn) {
     elementsToRender = (
       <>
-        <button className="news-card__category">
-          Nature
-        </button>
+        <button className="news-card__category">Nature</button>
         <button
           onClick={trashButtonClick}
           className="news-card__trash-button"
@@ -59,25 +82,22 @@ function NewsCard({ handleSignInClick, isLoggedIn, handleSave, handleRemoveSaved
   }
 
   return (
-    <section className="news-card">
+    <article
+      className="news-card"
+      onClick={(e) => {
+        if (e.target.closest("button")) return;
+        window.open(url, "_blank");
+      }}
+    >
       {elementsToRender}
-      <img src={georgia} alt="" className="news-card__image" />
+      <img src={imageUrl} alt={altText} className="news-card__image" />
       <div className="news-card__container">
-        <p className="news-card__container__date">Date</p>
-        <h3 className="news-card__container__title">
-          Grand Teton Renews Historic Crest Trail Long Long Title
-        </h3>
-        <p className="news-card__container__text">
-          “The linking together of the Cascade and Death Canyon trails, at their
-          heads, took place on October 1, 1933, and marked the first step in the
-          realization of a plan whereby the hiker will be able to traverse the
-          blah blah blah blah blah blah blah blah blah blah blah blah blah blah
-          blah blah blah blah blah blah blah blah blah blah blah blah blah blah
-          blah blah blah blah
-        </p>
-        <h4 className="news-card__container__source">National Geographic</h4>
+        <p className="news-card__container__date">{formattedDate}</p>
+        <h3 className="news-card__container__title">{title}</h3>
+        <p className="news-card__container__text">{cleanedBlurb}</p>
+        <h4 className="news-card__container__source">{source}</h4>
       </div>
-    </section>
+    </article>
   );
 }
 

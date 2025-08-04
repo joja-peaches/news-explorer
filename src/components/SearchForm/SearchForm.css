@@ -23,6 +23,16 @@
     padding: 21px 24px;
 }
 
+.search__form__error {
+    color: #fff;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    margin: 8px 0 0;
+}
+
 .search__form__input:focus {
     outline: none;
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
+import { useFormAndValidation } from "../../Hooks/useFormAndValidation";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import { useFormAndValidation } from "../../hooks/useFormAndValidation";
 
 function SignInModal({
   isOpen,

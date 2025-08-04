@@ -54,13 +54,6 @@ function Navigation({
         >
           Sign In
         </button>
-        {/* <div
-          className="navigation__hamburger-menu"
-          onClick={handleHamburgerClick}
-        >
-          <hr className="navigation__hamburger-menu__line" />
-          <hr className="navigation__hamburger-menu__line" />
-        </div> */}
         {hamburgerToRender}
       </>
     );

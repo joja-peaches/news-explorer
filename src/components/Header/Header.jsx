@@ -14,12 +14,14 @@ function Header({
   handleHomeClick,
   handleSavedArticlesClick,
   handleSignOut,
-  activeModal
+  handleHamburgerClick,
+  handleSearch,
+  activeModal,
 }) {
   const location = useLocation();
   let elementsToRender;
 
-    if (location.pathname === "/") {
+  if (location.pathname === "/") {
     elementsToRender = (
       <>
         <section className="header__text-container">
@@ -29,7 +31,7 @@ function Header({
             account.
           </h2>
         </section>
-        <SearchForm />
+        <SearchForm handleSearch={handleSearch} />
       </>
     );
   }
@@ -49,6 +51,7 @@ function Header({
         handleSavedArticlesClick={handleSavedArticlesClick}
         handleSignOut={handleSignOut}
         handleSignInSubmit={handleSignInSubmit}
+        handleHamburgerClick={handleHamburgerClick}
         activeModal={activeModal}
       />
       {elementsToRender}

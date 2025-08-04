@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { fetchNewsArticles } from "../../utils/NewsApi";
+import { authorize, checkToken } from "../../utils/auth";
 import "./App.css";
 
 import Header from "../Header/Header";
@@ -22,14 +24,28 @@ function App() {
   const [isActivePage, setIsActivePage] = useState("home");
   const [activeModal, setActiveModal] = useState(null);
   const [isSaved, setIsSaved] = useState(false);
-  const [savedArticles, setSavedArticles] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
+  const [isError, setIsError] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [savedArticles, setSavedArticles] = useState([]);
+  const [visibleArticlesCount, setVisibleArticlesCount] = useState(0);
   const [newsArticles, setNewsArticles] = useState([]);
+  const [noResults, setNoResults] = useState();
 
   const location = useLocation();
   let currentPath = location.pathname;
+
+  const handleActivePage = () => {
+    if ((currentPath = "/")) {
+      setIsActivePage("home");
+    } else {
+      setIsActivePage("savedNews");
+    }
+  };
+
+  const closeActiveModal = () => {
+    setActiveModal("");
+  };
 
   const handleSignUpClick = () => {
     setActiveModal("signUp");
@@ -39,8 +55,82 @@ function App() {
     setActiveModal("signIn");
   };
 
+  const handleSignUpSubmit = async ({ email, password, username }) => {
+    console.log("handleSignUpSubmit called");
+    alert("Function called!");
+    try {
+      const users = JSON.parse(localStorage.getItem("users") || "[]");
+      
+      if (users.some((user) => user.email === email)) {
+        throw new Error("Email already exists");
+      }
+
+      const userData = { email, password, username };
+      console.log(userData);
+      localStorage.setItem("userData", JSON.stringify(userData));
+
+      const data = await authorize(email, password);
+      console.log("authorize completed, token:", data.token);
+      if (data.token) {
+        localStorage.setItem("jwt", data.token);
+        const userData = await checkToken(data.token);
+        if (userData.data) {
+          console.log("About to show success modal");
+          setActiveModal("success");
+        }
+      }
+    } catch (error) {
+      console.error("Registration error:", error);
+      setIsError(error.message || "Registration failed. Please try again.");
+    }
+  };
+
+  const handleSignInSubmit = async ({ email, password }) => {
+    console.log("SIGN IN called");
+    alert("Sign in called!");
+    try {
+      const data = await authorize(email, password);
+      if (data.token) {
+        localStorage.setItem("jwt", data.token);
+        const userData = await checkToken(data.token);
+        if (userData.data) {
+          setCurrentUser(userData.data);
+          setIsLoggedIn(true);
+          closeActiveModal();
+        }
+      }
+    } catch (error) {
+      console.error("Login error:", error);
+      setIsError(error.message || "Login failed.");
+    }
+  };
+
+  const handleSignOut = () => {
+    setIsLoggedIn(false);
+    setCurrentUser(null);
+    localStorage.removeItem("jwt");
+    setIsActivePage("home");
+  };
+
+  useEffect(() => {
+    const jwt = localStorage.getItem("jwt");
+    if (jwt) {
+      checkToken(jwt)
+        .then((userData) => {
+          if (userData.data) {
+            setCurrentUser(userData.data);
+            setIsLoggedIn(true);
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+          localStorage.removeItem("jwt");
+        });
+    }
+  }, []);
+
   const handleHamburgerClick = () => {
-    setActiveModal("hamburger")
+    setActiveModal("hamburger");
   };
 
   const handleSavedArticlesClick = () => {
@@ -60,35 +150,61 @@ function App() {
     console.log("removed save");
   };
 
-  const closeActiveModal = () => {
-    setActiveModal("");
-  };
+  const handleSearch = async (searchQuery) => {
+    setIsLoading(true);
+    setIsError(null);
+    setNoResults(false);
+    setNewsArticles([]);
 
-  const handleSignInSubmit = (e) => {
-    e.preventDefault();
-    closeActiveModal();
-    setIsLoggedIn(true);
-  };
+    try {
+      const response = await fetchNewsArticles(searchQuery);
 
-  const handleSignUpSubmit = (e) => {
-    e.preventDefault();
-    setActiveModal("success");
-  };
-
-  const handleSignOut = () => {
-    setIsLoggedIn(false);
-    setCurrentUser(null);
-    setSavedArticles({});
-    setIsActivePage("home");
-  };
-
-  const handleActivePage = () => {
-    if ((currentPath = "/")) {
-      setIsActivePage("home");
-    } else {
-      setIsActivePage("savedNews");
+      if (!response.articles || response.articles.length === 0) {
+        setNoResults(true);
+      } else {
+        const articlesWithKeyword = response.articles.map((article) => ({
+          ...article,
+          keyword: searchQuery,
+        }));
+        console.log(articlesWithKeyword);
+        setNewsArticles(articlesWithKeyword);
+        setVisibleArticlesCount(3);
+      }
+    } catch (err) {
+      console.error("Search error:", err);
+      setIsError("Sorry, something went wrong. Please try again later.");
+    } finally {
+      setIsLoading(false);
     }
   };
+
+  // useEffect(() => {
+  //   if (isSavedArticlesPage) {
+  //     setArticles([]);
+  //     setNoResults(false);
+  //     setError(null);
+  //     setVisibleCount(3);
+  //   }
+  // }, [isSavedArticlesPage]);
+
+  const handleSaveArticle = (article) => {
+    const existing = savedArticles.find((a) => a.url === article.url);
+
+    if (existing) {
+      const updated = savedArticles.filter((a) => a.url !== article.url);
+      setSavedArticles(updated);
+    } else {
+      const newArticle = {
+        ...article,
+        id: Date.now(),
+      };
+      setSavedArticles([...savedArticles, newArticle]);
+    }
+  };
+
+  useEffect(() => {
+    localStorage.setItem("savedArticles", JSON.stringify(savedArticles));
+  }, [savedArticles]);
 
   return (
     <div className="app">
@@ -102,6 +218,8 @@ function App() {
         handleSignOut={handleSignOut}
         handleActivePage={handleActivePage}
         handleSignInSubmit={handleSignInSubmit}
+        handleHamburgerClick={handleHamburgerClick}
+        handleSearch={handleSearch}
         activeModal={activeModal}
       />
       <Routes>
@@ -114,6 +232,9 @@ function App() {
               handleSignInClick={handleSignInClick}
               handleSave={handleSave}
               isSaved={isSaved}
+              newsArticles={newsArticles}
+              visibleArticlesCount={visibleArticlesCount}
+              setVisibleArticlesCount={setVisibleArticlesCount}
             />
           }
         />
@@ -147,7 +268,6 @@ function App() {
         name="signUp"
         submitText="Sign up"
         buttonText="Sign in"
-        handleSignInSubmit={handleSignInSubmit}
         handleSignUpSubmit={handleSignUpSubmit}
         handleSignInClick={handleSignInClick}
       />
@@ -161,15 +281,13 @@ function App() {
         handleSignInSubmit={handleSignInSubmit}
         handleSignUpClick={handleSignUpClick}
       />
-      <HamburgerModal 
+      <HamburgerModal
         isOpen={activeModal === "hamburger"}
         onClose={closeActiveModal}
-        title="HAM"
         name="signIn"
         submitText="Sign in"
-        buttonText="Sign up"
         handleSignInSubmit={handleSignInSubmit}
-        handleSignUpClick={handleSignUpClick}
+        isLoggedIn={isLoggedIn}
       />
     </div>
   );

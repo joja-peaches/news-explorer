@@ -1,30 +1,45 @@
 import "./NewsCards.css";
 import NewsCard from "../NewsCard/NewsCard";
 
-function NewsCards({ handleSignInClick, isLoggedIn, handleSave, isSaved }) {
+function NewsCards({
+  isLoggedIn,
+  handleSignInClick,
+  handleSignInSubmit,
+  handleSave,
+  isSaved,
+  newsArticles,
+  visibleArticlesCount,
+  setVisibleArticlesCount,
+}) {
+  const handleShowMore = () => {
+    setVisibleArticlesCount((prevCount) => prevCount + 3);
+  };
+
   return (
     <section className="news-cards">
       <h1 className="news-cards__title">Search results</h1>
-      <div className="news-cards__cards">
-        <NewsCard
-          isLoggedIn={isLoggedIn}
-          handleSignInClick={handleSignInClick}
-          handleSave={handleSave}
-          isSaved={isSaved}
-        />
-        <NewsCard
-          isLoggedIn={isLoggedIn}
-          handleSignInClick={handleSignInClick}
-          handleSave={handleSave}
-          isSaved={isSaved}
-        />        <NewsCard
-          isLoggedIn={isLoggedIn}
-          handleSignInClick={handleSignInClick}
-          handleSave={handleSave}
-          isSaved={isSaved}
-        />
-      </div>
-      <button className="news-cards__button">Show more</button>
+      <ul className="news-cards__cards">
+        {newsArticles.slice(0, visibleArticlesCount).map((article) => (
+          <li className="news-cards__card" key={article.url}>
+            <NewsCard
+              isLoggedIn={isLoggedIn}
+              handleSignInClick={handleSignInClick}
+              handleSave={handleSave}
+              isSaved={isSaved}
+              title={article.title}
+              date={article.publishedAt}
+              source={article.source.name}
+              imageUrl={article.urlToImage}
+              blurb={article.content}
+              altText={article.description}
+              url={article.url}
+            />
+          </li>
+        ))}
+      </ul>
+      <button onClick={handleShowMore} className="news-cards__button">
+        Show more
+      </button>
     </section>
   );
 }
