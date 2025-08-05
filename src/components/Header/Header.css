@@ -73,6 +73,10 @@
         height: 536px;
     }
 
+    .header__saved-news {
+        height: 56px;
+    }
+
     .header__text-container {
         padding: 30px 16px 0 19px;
         width: 320px;

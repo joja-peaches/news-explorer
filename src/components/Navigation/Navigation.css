@@ -226,6 +226,11 @@
         height: 56px;
     }
 
+    .navigation__link-container__hamburger {
+        background-color: #1A1B22;
+        box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2); 
+    }
+
     .navigation__links__home {
         display: none;
     }
@@ -239,6 +244,10 @@
     }
 
     .navigation__links__profile {
+        display: none;
+    }
+
+    .navigation__hamburger-menu__hidden {
         display: none;
     }
 

@@ -16,6 +16,8 @@ function useModalClose(isOpen, onClose) {
         onClose();
       } else if (e.target.classList.contains("success-modal")) {
         onClose();
+      } else if (e.target.classList.contains("hamburger-modal")) {
+        onClose();
       }
     };
 

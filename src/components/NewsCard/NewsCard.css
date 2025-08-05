@@ -4,7 +4,8 @@
     background-color: #FFFFFF;
     border-radius: 16px;    
     position: relative;
-    border-radius: 0 0 16px 16px;
+    border-radius: 16px 16px;
+    overflow: hidden;
 }
 
 .news-card__save-button {
@@ -134,7 +135,7 @@
 .news-card__image {
     width: 400px;
     height: 272px;
-    border-radius: 16px 16px 0 0;
+    /* border-radius: 16px 16px 0 0; */
     background-color: #F5F6F7;
     object-fit: cover;
 }

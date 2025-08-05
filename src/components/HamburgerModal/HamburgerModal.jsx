@@ -10,7 +10,9 @@ function HamburgerModal({
   isLoggedIn,
 }) {
   useModalClose(isOpen, onClose);
+
   let elementsToRender;
+
   if (!isLoggedIn) {
     elementsToRender = (
       <button
@@ -23,7 +25,9 @@ function HamburgerModal({
   } else {
     elementsToRender = (
       <Link to="/saved-news">
-        <h3 className="hamburger-modal__title" onClick={onClose}>Saved articles</h3>
+        <h3 className="hamburger-modal__title" onClick={onClose}>
+          Saved articles
+        </h3>
       </Link>
     );
   }
@@ -33,7 +37,10 @@ function HamburgerModal({
       className={`hamburger-modal ${isOpen ? "hamburger-modal_opened" : ""}`}
     >
       <div className="hamburger-modal__container">
-        <button className="hamburger-modal__close-button" onClick={onClose} />
+        <div className="hamburger-modal__heading">
+          <p className="hamburger-modal__logo">NewsExplorer</p>
+          <button className="hamburger-modal__close-button" onClick={onClose} />
+        </div>
         <Link to="/">
           <h3 className="hamburger-modal__title" onClick={onClose}>
             Home

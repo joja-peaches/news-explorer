@@ -50,12 +50,11 @@
         width: 768px;
         height: 654px;
         column-gap: 8px;
-        
     }
 
     .news-cards__cards {
         margin: 0 auto;
-
+        padding: 20px 0 20px;
     }
 
     .news-cards__title {
@@ -77,10 +76,9 @@
     }
 
     .news-cards__cards {
-        flex-wrap: wrap;
+        padding: 24px 16px 12px;
         row-gap: 15px;
-        width: 288px;
-        margin: 0 auto;
+        background-color: #F5F6F7;
     }
 
     .news-cards__title {

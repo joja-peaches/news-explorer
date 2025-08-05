@@ -1,5 +1,4 @@
 import { useLocation } from "react-router-dom";
-import { useState } from "react";
 
 import "./Header.css";
 import Navigation from "../Navigation/Navigation";
@@ -39,7 +38,7 @@ function Header({
   return (
     <header
       className={`header ${
-        isActivePage === "savedNews" ? "header__saved-news" : ""
+        location.pathname === "/saved-news" ? "header__saved-news" : ""
       }`}
     >
       <Navigation

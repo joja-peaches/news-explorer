@@ -6,7 +6,6 @@ import signOutDark from "../../assets/dark-logout.png";
 function Navigation({
   isLoggedIn,
   handleSignInClick,
-  handleSignInSubmit,
   isActivePage,
   handleHomeClick,
   handleSavedArticlesClick,
@@ -27,6 +26,13 @@ function Navigation({
         <hr className="navigation__hamburger-menu__line" />
         <hr className="navigation__hamburger-menu__line" />
       </div>
+    );
+  } else if (activeModal === "hamburger") {
+    hamburgerToRender = (
+      <div
+        className="navigation__hamburger-menu__hidden"
+        onClick={handleHamburgerClick}
+      ></div>
     );
   } else {
     hamburgerToRender = (
@@ -90,13 +96,7 @@ function Navigation({
             onClick={handleSignOut}
           />
         </button>
-        <div
-          className="navigation__hamburger-menu"
-          onClick={handleHamburgerClick}
-        >
-          <hr className="navigation__hamburger-menu__line" />
-          <hr className="navigation__hamburger-menu__line" />
-        </div>
+        {hamburgerToRender}
       </>
     );
   } else if (isLoggedIn && location.pathname === "/saved-news") {
@@ -124,23 +124,20 @@ function Navigation({
             onClick={handleSignOut}
           />
         </button>
-        <div
-          className="navigation__hamburger-menu"
-          onClick={handleHamburgerClick}
-        >
-          <hr className="navigation__hamburger-menu__line navigation__hamburger-menu__line-dark" />
-          <hr className="navigation__hamburger-menu__line navigation__hamburger-menu__line-dark" />
-        </div>
+        {hamburgerToRender}
       </>
     );
   }
-
   return (
     <nav className="navigation">
       <div
         className={`navigation__link-container ${
-          isActivePage === "savedNews"
+          location.pathname === "/saved-news"
             ? "navigation__link-container__saved-news"
+            : ""
+        } ${
+          activeModal === "hamburger"
+            ? "navigation__link-container__hamburger"
             : ""
         }`}
       >
@@ -148,7 +145,9 @@ function Navigation({
           <p
             onClick={handleHomeClick}
             className={`navigation__logo ${
-              isActivePage === "savedNews" ? "navigation__logo__saved-news" : ""
+              location.pathname === "/saved-news"
+                ? "navigation__logo__saved-news"
+                : ""
             }`}
           >
             NewsExplorer
@@ -156,7 +155,7 @@ function Navigation({
         </Link>
         <div
           className={`navigation__links ${
-            isActivePage === "home" && isLoggedIn
+            location.pathname === "/" && isLoggedIn
               ? "navigation__links__signed-in"
               : ""
           }`}

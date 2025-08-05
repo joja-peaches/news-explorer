@@ -5,10 +5,10 @@ import { authorize, checkToken } from "../../utils/auth";
 import "./App.css";
 
 import Header from "../Header/Header";
-import Preloader from "../Preloader/Preloader";
-import NotFound from "../NotFound/NotFound";
-import About from "../About/About";
-import NewsCards from "../NewsCards/NewsCards";
+// import Preloader from "../Preloader/Preloader";
+// import NotFound from "../NotFound/NotFound";
+// import About from "../About/About";
+// import NewsCards from "../NewsCards/NewsCards";
 import Main from "../Main/Main";
 import SavedNews from "../SavedNews/SavedNews";
 import Footer from "../Footer/Footer";
