@@ -6,7 +6,7 @@ function NewsCards({
   handleSignInClick,
   handleSignInSubmit,
   handleSave,
-  isSaved,
+  savedArticles,
   newsArticles,
   visibleArticlesCount,
   setVisibleArticlesCount,
@@ -25,8 +25,9 @@ function NewsCards({
               isLoggedIn={isLoggedIn}
               handleSignInClick={handleSignInClick}
               handleSave={handleSave}
-              isSaved={isSaved}
+              savedArticles={savedArticles}
               title={article.title}
+              keyword={article.keyword}
               date={article.publishedAt}
               source={article.source.name}
               imageUrl={article.urlToImage}

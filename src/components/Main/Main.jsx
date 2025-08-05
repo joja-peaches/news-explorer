@@ -1,6 +1,7 @@
-import "./Main.css";
 import About from "../About/About";
 import NewsCards from "../NewsCards/NewsCards";
+import Preloader from "../Preloader/Preloader";
+import "./Main.css";
 
 function Main({
   handleSignInClick,
@@ -9,21 +10,40 @@ function Main({
   handleSave,
   visibleArticlesCount,
   setVisibleArticlesCount,
-  isSaved,
   newsArticles,
+  isLoading,
+  hasSearched,
+  savedArticles
 }) {
-  return (
-    <div className="main">
+  let elementsToRender;
+  if (isLoading && hasSearched) {
+    elementsToRender = <Preloader />;
+  } else if (hasSearched && !isLoading) {
+    elementsToRender = (
       <NewsCards
-        isSaved={isSaved}
         isLoggedIn={isLoggedIn}
         handleSignInClick={handleSignInClick}
         handleSignInSubmit={handleSignInSubmit}
-        handleSave={handleSave}
         newsArticles={newsArticles}
+        handleSave={handleSave}
+        savedArticles={savedArticles}
         visibleArticlesCount={visibleArticlesCount}
         setVisibleArticlesCount={setVisibleArticlesCount}
       />
+    );
+  }
+  return (
+    <div className="main">
+      {/* <NewsCards
+        isLoggedIn={isLoggedIn}
+        handleSignInClick={handleSignInClick}
+        handleSignInSubmit={handleSignInSubmit}
+        newsArticles={newsArticles}
+        handleSave={handleSave}
+        visibleArticlesCount={visibleArticlesCount}
+        setVisibleArticlesCount={setVisibleArticlesCount}
+      /> */}
+      {elementsToRender}
       <About />
     </div>
   );

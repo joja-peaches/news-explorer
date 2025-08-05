@@ -21,6 +21,7 @@ function ModalWithForm({
     <dialog className={`modal ${isOpen ? "modal_opened" : ""}`}>
       <form
         className="modal__form"
+        method="get"
         // onSubmit={submitText === "Sign up" ? handleSignUpSubmit : handleSignInSubmit}
         onSubmit={onSubmit}
       >

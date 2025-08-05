@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
-import { formatDate } from "../../utils/helpers";
+import { formatDate, cleanKeyword } from "../../utils/helpers";
 import "./NewsCard.css";
 
 function NewsCard({
@@ -8,20 +8,21 @@ function NewsCard({
   isLoggedIn,
   handleSave,
   handleRemoveSaved,
-  isSaved,
+  savedArticles,
   title,
   date,
   source,
   imageUrl,
+  keyword,
   blurb,
   altText,
   url,
 }) {
-  const [isSaveClicked, setisSaveClicked] = useState(false);
+  const [isSaveClicked, setIsSaveClicked] = useState(false);
   const [isTrashClicked, setIsTrashClicked] = useState(false);
 
   const savedButtonClick = () => {
-    setisSaveClicked(!isSaveClicked);
+    setIsSaveClicked(!isSaveClicked);
   };
 
   const trashButtonClick = () => {
@@ -35,6 +36,11 @@ function NewsCard({
   };
 
   const cleanedBlurb = cleanBlurb(blurb);
+  const cleanedKeyword = (keyword) => {
+    if (!keyword === "") {
+      cleanKeyword(keyword);
+    }
+  };
 
   const location = useLocation();
   let elementsToRender;
@@ -55,22 +61,46 @@ function NewsCard({
   } else if (location.pathname === "/" && isLoggedIn) {
     elementsToRender = (
       <button
-        onClick={handleSave}
+        onClick={() =>
+          handleSave({
+            title,
+            date,
+            source,
+            imageUrl,
+            blurb,
+            altText,
+            url,
+            keyword,
+          })
+        }
         className={`news-card__save-button ${
-          isSaved ? "news-card__save-button__saved" : ""
+          savedArticles.some((a) => a.url === url)
+            ? "news-card__save-button__saved"
+            : ""
         }`}
       />
     );
   } else if (location.pathname === "/saved-news" && isLoggedIn) {
     elementsToRender = (
       <>
-        <button className="news-card__category">Nature</button>
+        <button className="news-card__category">{cleanedKeyword}</button>
         <button
           onClick={trashButtonClick}
           className="news-card__trash-button"
         />
         <button
-          onClick={handleRemoveSaved}
+          onClick={() =>
+            handleRemoveSaved({
+              title,
+              date,
+              source,
+              imageUrl,
+              blurb,
+              altText,
+              url,
+              keyword,
+            })
+          }
           className={`news-card__remove-button ${
             isTrashClicked ? "news-card__remove-button_visible" : ""
           }`}

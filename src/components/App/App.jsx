@@ -23,11 +23,11 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [isActivePage, setIsActivePage] = useState("home");
   const [activeModal, setActiveModal] = useState(null);
-  const [isSaved, setIsSaved] = useState(false);
   const [isError, setIsError] = useState(null);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [hasSearched, setHasSearched] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [savedArticles, setSavedArticles] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
   const [visibleArticlesCount, setVisibleArticlesCount] = useState(0);
   const [newsArticles, setNewsArticles] = useState([]);
   const [noResults, setNoResults] = useState();
@@ -36,7 +36,7 @@ function App() {
   let currentPath = location.pathname;
 
   const handleActivePage = () => {
-    if ((currentPath = "/")) {
+    if (currentPath === "/") {
       setIsActivePage("home");
     } else {
       setIsActivePage("savedNews");
@@ -60,7 +60,7 @@ function App() {
     alert("Function called!");
     try {
       const users = JSON.parse(localStorage.getItem("users") || "[]");
-      
+
       if (users.some((user) => user.email === email)) {
         throw new Error("Email already exists");
       }
@@ -129,6 +129,22 @@ function App() {
     }
   }, []);
 
+  useEffect(() => {
+    const storedArticles = localStorage.getItem("savedArticles");
+    console.log("Stored articles from localStorage:", storedArticles);
+    if (storedArticles) {
+      try {
+        const parsedArticles = JSON.parse(storedArticles);
+        console.log("Parsed articles:", parsedArticles);
+        setSavedArticles(parsedArticles);
+      } catch (error) {
+        console.error("Error parsing savedArticles from localStorage:", error);
+        localStorage.removeItem("savedArticles");
+      }
+    }
+    setIsLoaded(true);
+  }, []);
+
   const handleHamburgerClick = () => {
     setActiveModal("hamburger");
   };
@@ -141,20 +157,12 @@ function App() {
     setIsActivePage("home");
   };
 
-  const handleSave = () => {
-    console.log("saved");
-    setIsSaved(!isSaved);
-  };
-
-  const handleRemoveSave = () => {
-    console.log("removed save");
-  };
-
   const handleSearch = async (searchQuery) => {
     setIsLoading(true);
     setIsError(null);
     setNoResults(false);
     setNewsArticles([]);
+    setHasSearched(true);
 
     try {
       const response = await fetchNewsArticles(searchQuery);
@@ -178,33 +186,37 @@ function App() {
     }
   };
 
-  // useEffect(() => {
-  //   if (isSavedArticlesPage) {
-  //     setArticles([]);
-  //     setNoResults(false);
-  //     setError(null);
-  //     setVisibleCount(3);
-  //   }
-  // }, [isSavedArticlesPage]);
-
   const handleSaveArticle = (article) => {
+    console.log("Saving article: ", article);
+
     const existing = savedArticles.find((a) => a.url === article.url);
 
     if (existing) {
+      console.log("Removing existing article:", existing);
       const updated = savedArticles.filter((a) => a.url !== article.url);
       setSavedArticles(updated);
     } else {
       const newArticle = {
         ...article,
         id: Date.now(),
+        keyword: article.keyword || "unknown",
       };
+      console.log("Adding new article:", newArticle);
       setSavedArticles([...savedArticles, newArticle]);
     }
   };
 
+  const handleRemoveSaved = (article) => {
+    const updated = savedArticles.filter((a) => a.url !== article.url);
+    setSavedArticles(updated);
+  };
+
   useEffect(() => {
-    localStorage.setItem("savedArticles", JSON.stringify(savedArticles));
-  }, [savedArticles]);
+    if (isLoaded) {
+      console.log("Saving to localStorage:", savedArticles);
+      localStorage.setItem("savedArticles", JSON.stringify(savedArticles));
+    }
+  }, [savedArticles, isLoaded]);
 
   return (
     <div className="app">
@@ -230,11 +242,13 @@ function App() {
               isLoggedIn={isLoggedIn}
               handleSignInSubmit={handleSignInSubmit}
               handleSignInClick={handleSignInClick}
-              handleSave={handleSave}
-              isSaved={isSaved}
+              handleSave={handleSaveArticle}
+              isLoading={isLoading}
               newsArticles={newsArticles}
               visibleArticlesCount={visibleArticlesCount}
               setVisibleArticlesCount={setVisibleArticlesCount}
+              hasSearched={hasSearched}
+              savedArticles={savedArticles}
             />
           }
         />
@@ -244,16 +258,17 @@ function App() {
             <ProtectedRoute isLoggedIn={isLoggedIn}>
               <SavedNews
                 isLoggedIn={isLoggedIn}
-                handleRemoveSaved={handleRemoveSave}
-                isSaved={isSaved}
+                handleSave={handleSaveArticle}
+                savedArticles={savedArticles}
+                handleRemoveSaved={handleRemoveSaved}
+                handleSignInClick={handleSignInClick}
+                currentUser={currentUser}
               />
             </ProtectedRoute>
           }
         />
       </Routes>
       <Footer />
-
-      {/* <Preloader /> */}
       {/* <NotFound /> */}
       <SuccessModal
         isOpen={activeModal === "success"}
@@ -278,6 +293,7 @@ function App() {
         name="signIn"
         submitText="Sign in"
         buttonText="Sign up"
+        onSubmit={handleSignInSubmit}
         handleSignInSubmit={handleSignInSubmit}
         handleSignUpClick={handleSignUpClick}
       />

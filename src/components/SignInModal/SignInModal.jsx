@@ -9,6 +9,7 @@ function SignInModal({
   name,
   submitText,
   buttonText,
+  onSubmit,
   handleSignInSubmit,
   handleSignUpSubmit,
   handleSignUpClick,
@@ -35,6 +36,7 @@ function SignInModal({
       name={name}
       submitText={submitText}
       buttonText={buttonText}
+      onSubmit={onSubmit}
       handleSignUpClick={handleSignUpClick}
       handleSignInSubmit={handleSignInSubmit}
       handleSignUpSubmit={handleSignUpSubmit}
