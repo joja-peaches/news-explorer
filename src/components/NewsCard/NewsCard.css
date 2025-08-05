@@ -26,7 +26,15 @@
     background-image: url('/src/assets/bookmark-hover.svg');
 }
 
+.news-card__save-button:active {
+    background-image: url('/src/assets/bookmark-marked.svg');
+}
+
 .news-card__save-button__saved {
+    background-image: url('/src/assets/bookmark-marked.svg');
+}
+
+.news-card__save-button__saved:hover {
     background-image: url('/src/assets/bookmark-marked.svg');
 }
 

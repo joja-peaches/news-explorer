@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./HamburgerModal.css";
 import useModalClose from "../../hooks/useModalClose";
 
@@ -21,7 +22,9 @@ function HamburgerModal({
     );
   } else {
     elementsToRender = (
-      <h3 className="hamburger-modal__title">Saved articles</h3>
+      <Link to="/saved-news">
+        <h3 className="hamburger-modal__title" onClick={onClose}>Saved articles</h3>
+      </Link>
     );
   }
 
@@ -31,7 +34,11 @@ function HamburgerModal({
     >
       <div className="hamburger-modal__container">
         <button className="hamburger-modal__close-button" onClick={onClose} />
-        <h3 className="hamburger-modal__title">Home</h3>
+        <Link to="/">
+          <h3 className="hamburger-modal__title" onClick={onClose}>
+            Home
+          </h3>
+        </Link>
         {elementsToRender}
       </div>
     </dialog>

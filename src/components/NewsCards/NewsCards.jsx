@@ -4,7 +4,6 @@ import NewsCard from "../NewsCard/NewsCard";
 function NewsCards({
   isLoggedIn,
   handleSignInClick,
-  handleSignInSubmit,
   handleSave,
   savedArticles,
   newsArticles,

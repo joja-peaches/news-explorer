@@ -1,6 +1,7 @@
 import About from "../About/About";
 import NewsCards from "../NewsCards/NewsCards";
 import Preloader from "../Preloader/Preloader";
+import NotFound from "../NotFound/NotFound";
 import "./Main.css";
 
 function Main({
@@ -13,11 +14,14 @@ function Main({
   newsArticles,
   isLoading,
   hasSearched,
-  savedArticles
+  savedArticles,
+  noResults,
 }) {
   let elementsToRender;
   if (isLoading && hasSearched) {
     elementsToRender = <Preloader />;
+  } else if (hasSearched && !isLoading && noResults) {
+    elementsToRender = <NotFound />;
   } else if (hasSearched && !isLoading) {
     elementsToRender = (
       <NewsCards
@@ -34,15 +38,6 @@ function Main({
   }
   return (
     <div className="main">
-      {/* <NewsCards
-        isLoggedIn={isLoggedIn}
-        handleSignInClick={handleSignInClick}
-        handleSignInSubmit={handleSignInSubmit}
-        newsArticles={newsArticles}
-        handleSave={handleSave}
-        visibleArticlesCount={visibleArticlesCount}
-        setVisibleArticlesCount={setVisibleArticlesCount}
-      /> */}
       {elementsToRender}
       <About />
     </div>

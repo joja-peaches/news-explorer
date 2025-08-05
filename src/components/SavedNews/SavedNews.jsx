@@ -10,11 +10,7 @@ function SavedNews({
   handleRemoveSaved,
   currentUser,
 }) {
-  // console.log("SavedNews rendered, savedArticles:", savedArticles);
-  // console.log(
-  //   "Article keywords:",
-  //   savedArticles.map((a) => a.keyword)
-  // );
+
   const name = currentUser?.name || "User";
   const numberSaved = savedArticles.length;
 
@@ -58,7 +54,6 @@ function SavedNews({
                 handleRemoveSaved={handleRemoveSaved}
                 savedArticles={savedArticles}
                 title={article.title}
-                // keyword={article.keyword}
                 date={article.date}
                 source={article.source}
                 imageUrl={article.imageUrl}

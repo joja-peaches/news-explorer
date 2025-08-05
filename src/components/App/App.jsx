@@ -249,6 +249,7 @@ function App() {
               setVisibleArticlesCount={setVisibleArticlesCount}
               hasSearched={hasSearched}
               savedArticles={savedArticles}
+              noResults={noResults}
             />
           }
         />
@@ -269,7 +270,6 @@ function App() {
         />
       </Routes>
       <Footer />
-      {/* <NotFound /> */}
       <SuccessModal
         isOpen={activeModal === "success"}
         onClose={closeActiveModal}
@@ -301,6 +301,7 @@ function App() {
         isOpen={activeModal === "hamburger"}
         onClose={closeActiveModal}
         name="signIn"
+        handleSignInClick={handleSignInClick}
         submitText="Sign in"
         handleSignInSubmit={handleSignInSubmit}
         isLoggedIn={isLoggedIn}

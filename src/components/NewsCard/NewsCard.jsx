@@ -36,11 +36,12 @@ function NewsCard({
   };
 
   const cleanedBlurb = cleanBlurb(blurb);
-  const cleanedKeyword = (keyword) => {
-    if (!keyword === "") {
-      cleanKeyword(keyword);
-    }
-  };
+  // const cleanedKeyword = (keyword) => {
+  //   if (!keyword === "") {
+  //     cleanKeyword(keyword);
+  //   } 
+  // };
+const cleanedKeyword = cleanKeyword(keyword || "Uncategorized");
 
   const location = useLocation();
   let elementsToRender;
