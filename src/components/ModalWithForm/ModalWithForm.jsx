@@ -8,7 +8,6 @@ function ModalWithForm({
   title,
   submitText,
   buttonText,
-  onSubmit,
   children,
   handleSignInClick,
   handleSignUpClick,
@@ -22,8 +21,7 @@ function ModalWithForm({
       <form
         className="modal__form"
         method="get"
-        // onSubmit={submitText === "Sign up" ? handleSignUpSubmit : handleSignInSubmit}
-        onSubmit={onSubmit}
+        onSubmit={submitText === "Sign up" ? handleSignUpSubmit : handleSignInSubmit}
       >
         <h3 className="modal__title">{title}</h3>
         <button className="modal__close-button" onClick={onClose} />
@@ -32,7 +30,6 @@ function ModalWithForm({
           <button
             className="modal__submit-button"
             type="submit"
-            // onClick={onSubmit}
           >
             {submitText}
           </button>

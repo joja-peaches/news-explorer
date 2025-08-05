@@ -56,7 +56,7 @@
     background-position: center;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 769px) {
     .footer {
         height: 64px;
         width: 768px;

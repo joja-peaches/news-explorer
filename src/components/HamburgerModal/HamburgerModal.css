@@ -27,7 +27,7 @@
     position: absolute;
     top: 0px;
     width: 320px;
-    height: 192px;
+    height: auto;
     background-color: #1A1B22;
     box-sizing: border-box;
     padding: 0 16px 24px;
@@ -80,7 +80,7 @@
     margin: 0;
 }
 
-.hamburger-modal__sign-in-button {
+.hamburger-modal__sign-in-out {
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
     font-weight: 500;
     font-size: 18px;

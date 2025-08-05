@@ -32,3 +32,15 @@
     margin: 0;
     text-align: center;
 }
+
+@media screen and (max-width: 769px) {
+    .not-found {
+        width: 768px;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .not-found {
+        width: 320px;
+    }
+}

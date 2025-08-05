@@ -6,6 +6,7 @@ function HamburgerModal({
   isOpen,
   onClose,
   handleSignInClick,
+  handleSignOut,
   submitText,
   isLoggedIn,
 }) {
@@ -17,18 +18,24 @@ function HamburgerModal({
     elementsToRender = (
       <button
         onClick={handleSignInClick}
-        className="hamburger-modal__sign-in-button"
+        className="hamburger-modal__sign-in-out"
       >
         {submitText}
       </button>
     );
   } else {
     elementsToRender = (
-      <Link to="/saved-news">
-        <h3 className="hamburger-modal__title" onClick={onClose}>
-          Saved articles
-        </h3>
-      </Link>
+      <>
+        <Link to="/saved-news">
+          <h3 className="hamburger-modal__title" onClick={onClose}>
+            Saved articles
+          </h3>
+        </Link>
+        <button
+          onClick={handleSignOut}
+          className="hamburger-modal__sign-in-out"
+        >Sign Out</button>
+      </>
     );
   }
 

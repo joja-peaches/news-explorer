@@ -11,6 +11,7 @@ function SignUpModal({
   buttonText,
   onSubmit,
   handleSignUpSubmit,
+  handleSignInClick
 }) {
   const { values, handleChange, setValues, errors, setErrors } =
     useFormAndValidation({
@@ -50,6 +51,7 @@ function SignUpModal({
       buttonText={buttonText}
       onSubmit={onSignUp}
       handleSignUpSubmit={handleSignUpSubmit}
+      handleSignInClick={handleSignInClick }
     >
       <label className="modal__label">
         Email

@@ -198,7 +198,6 @@ input:-webkit-autofill:active {
         width: 288px;
         padding: 8px 0 10px;
         margin: 0 0 18px;
-        color: rgb(0, 0, 0, .2);
     }
 
     .modal__label-password {
@@ -207,7 +206,7 @@ input:-webkit-autofill:active {
 
     .modal__error {
         left: 16px;
-        top: 138px
+        top: 110px
     }
 
     .modal__submit-button {

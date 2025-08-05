@@ -40,3 +40,15 @@
     transform: rotate(360deg);
   }
 }
+
+@media screen and (max-width: 769px) {
+    .preloader {
+        width: 768px;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .preloader {
+        width: 320px;
+    }
+}

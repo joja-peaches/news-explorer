@@ -5,7 +5,7 @@
     width: 1440px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 769px) {
     .app {
         width: 768px;
     }

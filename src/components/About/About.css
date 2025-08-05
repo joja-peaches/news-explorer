@@ -37,7 +37,7 @@
     width: 600px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 769px) {
     .about {
         height: 354px;
         width: 768px;
