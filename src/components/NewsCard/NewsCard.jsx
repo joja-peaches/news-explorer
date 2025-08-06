@@ -16,7 +16,7 @@ function NewsCard({
   keyword,
   blurb,
   altText,
-  url,
+  url
 }) {
   const [isSaveClicked, setIsSaveClicked] = useState(false);
   const [isTrashClicked, setIsTrashClicked] = useState(false);
@@ -36,11 +36,7 @@ function NewsCard({
   };
 
   const cleanedBlurb = cleanBlurb(blurb);
-  // const cleanedKeyword = (keyword) => {
-  //   if (!keyword === "") {
-  //     cleanKeyword(keyword);
-  //   } 
-  // };
+
 const cleanedKeyword = cleanKeyword(keyword || "Uncategorized");
 
   const location = useLocation();

@@ -14,13 +14,13 @@ function SignInModal({
   handleSignUpSubmit,
   handleSignUpClick,
 }) {
-  const { values, handleChange, setValues, errors, setErrors } =
+  const { values, handleChange, errors } =
     useFormAndValidation({
       email: "",
       password: "",
     });
 
-  const [isFormValid, setIsFormValid] = useState(false);
+  const [_isFormValid, setIsFormValid] = useState(false);
 
   useEffect(() => {
     const hasInput = values.email && values.password;

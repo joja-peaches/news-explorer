@@ -9,7 +9,6 @@ function SignUpModal({
   name,
   submitText,
   buttonText,
-  onSubmit,
   handleSignUpSubmit,
   handleSignInClick
 }) {
@@ -20,7 +19,7 @@ function SignUpModal({
       username: "",
     });
 
-  const [isFormValid, setIsFormValid] = useState(false);
+  const [_isFormValid, setIsFormValid] = useState(false);
 
   useEffect(() => {
     const hasValues = values.email && values.password && values.username;
@@ -29,9 +28,7 @@ function SignUpModal({
   }, [values, errors]);
 
   const onSignUp = (e) => {
-    console.log("OnSignUp working")
     e.preventDefault();
-    console.log("Registration values being sent:", values);
     handleSignUpSubmit(values);
   };
 

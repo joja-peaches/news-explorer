@@ -1,6 +1,5 @@
-import { useEffect } from "react";
-import "./ModalWithForm.css";
 import useModalClose from "../../hooks/useModalClose";
+import "./ModalWithForm.css";
 
 function ModalWithForm({
   isOpen,

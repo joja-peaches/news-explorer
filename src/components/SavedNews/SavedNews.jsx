@@ -61,6 +61,7 @@ function SavedNews({
                 altText={article.description}
                 url={article.url}
                 key={article.url}
+                keyword={article.keyword}
               />
             ))}
           </ul>

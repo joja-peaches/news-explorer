@@ -1,11 +1,11 @@
-export const authorize = (email, password) => {
-  return new Promise((resolve, reject) => {
+export const authorize = () => {
+  return new Promise((resolve) => {
     resolve({ token: "working token" });
   });
 };
 
-export const checkToken = (token) => {
-  return new Promise((resolve, reject) => {
+export const checkToken = () => {
+  return new Promise((resolve) => {
     resolve({
       data: { name: "Georgia", email: "georgia@rules.com", _id: "fake-id" },
     });

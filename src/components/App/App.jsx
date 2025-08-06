@@ -19,7 +19,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [isActivePage, setIsActivePage] = useState("home");
   const [activeModal, setActiveModal] = useState(null);
-  const [isError, setIsError] = useState(null);
+  const [_isError, setIsError] = useState(null);
   const [hasSearched, setHasSearched] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [savedArticles, setSavedArticles] = useState([]);
@@ -52,8 +52,6 @@ function App() {
   };
 
   const handleSignUpSubmit = async ({ email, password, username }) => {
-    console.log("handleSignUpSubmit called");
-    alert("Function called!");
     try {
       const users = JSON.parse(localStorage.getItem("users") || "[]");
 
@@ -62,16 +60,13 @@ function App() {
       }
 
       const userData = { email, password, username };
-      console.log(userData);
       localStorage.setItem("userData", JSON.stringify(userData));
 
       const data = await authorize(email, password);
-      console.log("authorize completed, token:", data.token);
       if (data.token) {
         localStorage.setItem("jwt", data.token);
         const userData = await checkToken(data.token);
         if (userData.data) {
-          console.log("About to show success modal");
           setActiveModal("success");
         }
       }
@@ -82,8 +77,6 @@ function App() {
   };
 
   const handleSignInSubmit = async ({ email, password }) => {
-    console.log("SIGN IN called");
-    alert("Sign in called!");
     try {
       const data = await authorize(email, password);
       if (data.token) {
@@ -127,11 +120,9 @@ function App() {
 
   useEffect(() => {
     const storedArticles = localStorage.getItem("savedArticles");
-    console.log("Stored articles from localStorage:", storedArticles);
     if (storedArticles) {
       try {
         const parsedArticles = JSON.parse(storedArticles);
-        console.log("Parsed articles:", parsedArticles);
         setSavedArticles(parsedArticles);
       } catch (error) {
         console.error("Error parsing savedArticles from localStorage:", error);
@@ -170,7 +161,6 @@ function App() {
           ...article,
           keyword: searchQuery,
         }));
-        console.log(articlesWithKeyword);
         setNewsArticles(articlesWithKeyword);
         setVisibleArticlesCount(3);
       }
@@ -183,12 +173,9 @@ function App() {
   };
 
   const handleSaveArticle = (article) => {
-    console.log("Saving article: ", article);
-
     const existing = savedArticles.find((a) => a.url === article.url);
 
     if (existing) {
-      console.log("Removing existing article:", existing);
       const updated = savedArticles.filter((a) => a.url !== article.url);
       setSavedArticles(updated);
     } else {
@@ -197,7 +184,6 @@ function App() {
         id: Date.now(),
         keyword: article.keyword || "unknown",
       };
-      console.log("Adding new article:", newArticle);
       setSavedArticles([...savedArticles, newArticle]);
     }
   };
@@ -209,7 +195,6 @@ function App() {
 
   useEffect(() => {
     if (isLoaded) {
-      console.log("Saving to localStorage:", savedArticles);
       localStorage.setItem("savedArticles", JSON.stringify(savedArticles));
     }
   }, [savedArticles, isLoaded]);

@@ -1,5 +1,4 @@
 import "./Preloader.css";
-import loading from "../../assets/loading.png";
 
 function Preloader() {
   return (
