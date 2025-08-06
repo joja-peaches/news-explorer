@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Routes, Route, BrowserRouter, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { fetchNewsArticles } from "../../utils/NewsApi";
 import { authorize, checkToken } from "../../utils/auth";
 import "./App.css";
@@ -200,7 +200,6 @@ function App() {
   }, [savedArticles, isLoaded]);
 
   return (
-    <BrowserRouter basename="/news-explorer">
       <div className="app">
         <Header
           isLoggedIn={isLoggedIn}
@@ -290,7 +289,6 @@ function App() {
           isLoggedIn={isLoggedIn}
         />
       </div>
-    </BrowserRouter>
   );
 }
 
