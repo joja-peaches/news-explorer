@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { Routes, Route, BrowserRouter, useLocation } from "react-router-dom";
 import { fetchNewsArticles } from "../../utils/NewsApi";
 import { authorize, checkToken } from "../../utils/auth";
 import "./App.css";
@@ -200,95 +200,97 @@ function App() {
   }, [savedArticles, isLoaded]);
 
   return (
-    <div className="app">
-      <Header
-        isLoggedIn={isLoggedIn}
-        handleSignInClick={handleSignInClick}
-        currentUser={currentUser}
-        isActivePage={isActivePage}
-        handleHomeClick={handleHomeClick}
-        handleSavedArticlesClick={handleSavedArticlesClick}
-        handleSignOut={handleSignOut}
-        handleActivePage={handleActivePage}
-        handleSignInSubmit={handleSignInSubmit}
-        handleHamburgerClick={handleHamburgerClick}
-        handleSearch={handleSearch}
-        activeModal={activeModal}
-      />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Main
-              isLoggedIn={isLoggedIn}
-              handleSignInSubmit={handleSignInSubmit}
-              handleSignInClick={handleSignInClick}
-              handleSave={handleSaveArticle}
-              isLoading={isLoading}
-              newsArticles={newsArticles}
-              visibleArticlesCount={visibleArticlesCount}
-              setVisibleArticlesCount={setVisibleArticlesCount}
-              hasSearched={hasSearched}
-              savedArticles={savedArticles}
-              noResults={noResults}
-            />
-          }
+    <BrowserRouter basename="/news-explorer">
+      <div className="app">
+        <Header
+          isLoggedIn={isLoggedIn}
+          handleSignInClick={handleSignInClick}
+          currentUser={currentUser}
+          isActivePage={isActivePage}
+          handleHomeClick={handleHomeClick}
+          handleSavedArticlesClick={handleSavedArticlesClick}
+          handleSignOut={handleSignOut}
+          handleActivePage={handleActivePage}
+          handleSignInSubmit={handleSignInSubmit}
+          handleHamburgerClick={handleHamburgerClick}
+          handleSearch={handleSearch}
+          activeModal={activeModal}
         />
-        <Route
-          path="/saved-news"
-          element={
-            <ProtectedRoute isLoggedIn={isLoggedIn}>
-              <SavedNews
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Main
                 isLoggedIn={isLoggedIn}
-                handleSave={handleSaveArticle}
-                savedArticles={savedArticles}
-                handleRemoveSaved={handleRemoveSaved}
+                handleSignInSubmit={handleSignInSubmit}
                 handleSignInClick={handleSignInClick}
-                currentUser={currentUser}
+                handleSave={handleSaveArticle}
+                isLoading={isLoading}
+                newsArticles={newsArticles}
+                visibleArticlesCount={visibleArticlesCount}
+                setVisibleArticlesCount={setVisibleArticlesCount}
+                hasSearched={hasSearched}
+                savedArticles={savedArticles}
+                noResults={noResults}
               />
-            </ProtectedRoute>
-          }
+            }
+          />
+          <Route
+            path="/saved-news"
+            element={
+              <ProtectedRoute isLoggedIn={isLoggedIn}>
+                <SavedNews
+                  isLoggedIn={isLoggedIn}
+                  handleSave={handleSaveArticle}
+                  savedArticles={savedArticles}
+                  handleRemoveSaved={handleRemoveSaved}
+                  handleSignInClick={handleSignInClick}
+                  currentUser={currentUser}
+                />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+        <Footer />
+        <SuccessModal
+          isOpen={activeModal === "success"}
+          onClose={closeActiveModal}
+          handleSignInClick={handleSignInClick}
         />
-      </Routes>
-      <Footer />
-      <SuccessModal
-        isOpen={activeModal === "success"}
-        onClose={closeActiveModal}
-        handleSignInClick={handleSignInClick}
-      />
 
-      <SignUpModal
-        isOpen={activeModal === "signUp"}
-        onClose={closeActiveModal}
-        title="Sign up"
-        name="signUp"
-        submitText="Sign up"
-        buttonText="Sign in"
-        handleSignUpSubmit={handleSignUpSubmit}
-        handleSignInClick={handleSignInClick}
-      />
-      <SignInModal
-        isOpen={activeModal === "signIn"}
-        onClose={closeActiveModal}
-        title="Sign in"
-        name="signIn"
-        submitText="Sign in"
-        buttonText="Sign up"
-        onSubmit={handleSignInSubmit}
-        handleSignInSubmit={handleSignInSubmit}
-        handleSignUpClick={handleSignUpClick}
-      />
-      <HamburgerModal
-        isOpen={activeModal === "hamburger"}
-        onClose={closeActiveModal}
-        name="signIn"
-        handleSignInClick={handleSignInClick}
-        submitText="Sign in"
-        handleSignInSubmit={handleSignInSubmit}
-        handleSignOut={handleSignOut}
-        isLoggedIn={isLoggedIn}
-      />
-    </div>
+        <SignUpModal
+          isOpen={activeModal === "signUp"}
+          onClose={closeActiveModal}
+          title="Sign up"
+          name="signUp"
+          submitText="Sign up"
+          buttonText="Sign in"
+          handleSignUpSubmit={handleSignUpSubmit}
+          handleSignInClick={handleSignInClick}
+        />
+        <SignInModal
+          isOpen={activeModal === "signIn"}
+          onClose={closeActiveModal}
+          title="Sign in"
+          name="signIn"
+          submitText="Sign in"
+          buttonText="Sign up"
+          onSubmit={handleSignInSubmit}
+          handleSignInSubmit={handleSignInSubmit}
+          handleSignUpClick={handleSignUpClick}
+        />
+        <HamburgerModal
+          isOpen={activeModal === "hamburger"}
+          onClose={closeActiveModal}
+          name="signIn"
+          handleSignInClick={handleSignInClick}
+          submitText="Sign in"
+          handleSignInSubmit={handleSignInSubmit}
+          handleSignOut={handleSignOut}
+          isLoggedIn={isLoggedIn}
+        />
+      </div>
+    </BrowserRouter>
   );
 }
 

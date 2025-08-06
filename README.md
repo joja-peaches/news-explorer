@@ -6,6 +6,8 @@ With a clean design and user-friendly interface, NewsExplorer combines functiona
 
 > Built by **Georgia Lloyd**, this project showcases a blend of full-stack development and a passion for beautiful design.
 
+Visit the deployed page [here](https://joja-peaches.github.io/news-explorer/) 
+
 ---
 
 ## ✨ Features
