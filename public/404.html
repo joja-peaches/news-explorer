@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Single Page App</title>
+    <script>
+      const path = window.location.pathname;
+      if (path !== '/news-explorer/') {
+        window.location.href = '/news-explorer/#' + path;
+      } else {
+        window.location.href = '/news-explorer/';
+      }
+    </script>
+  </head>
+  <body>
+    <p>Redirecting...</p>
+  </body>
+</html>
