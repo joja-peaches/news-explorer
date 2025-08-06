@@ -1,12 +1,70 @@
-# React + Vite
+# 🗞️ NewsExplorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Welcome to NewsExplorer**, a delightful React-based web app that lets you search for recent news articles, save your favorites, and manage them in a personal account!
 
-Currently, two official plugins are available:
+With a clean design and user-friendly interface, NewsExplorer combines functionality with aesthetic appeal.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+> Built by **Georgia Lloyd**, this project showcases a blend of full-stack development and a passion for beautiful design.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Features
+
+- **🔍 Search News**: Find the latest articles by keyword, with results from the past 7 days.  
+- **💾 Save Articles**: Logged-in users can save articles to their personal collection.  
+- **🔐 User Authentication**: Sign up, sign in, and securely manage your account using local storage.  
+- **📱 Responsive Design**: Enjoy a seamless experience on desktop and mobile.  
+- **🛡️ Protected Routes**: Access saved articles only when logged in.  
+- **⚙️ Dynamic UI**:
+  - Modals for sign-up and sign-in
+  - Hamburger menu navigation
+  - Preloader and not-found states
+
+---
+
+## 👩‍💻 About the Author
+
+Created by **Georgia Lloyd** — blending clean code with a passion for beautiful, intuitive interfaces. Learn more about the author within the app.
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- [React](https://reactjs.org)
+- [React Router](https://reactrouter.com/)
+- [Vite](https://vitejs.dev/)
+
+### API
+- [News API](https://newsapi.org) (via direct access or a custom proxy in production)
+
+### Styling
+- Modular CSS (component-based styles)
+
+### State Management
+- React Hooks (`useState`, `useEffect`)
+- Context API
+
+### Utilities
+- Custom Hooks:
+  - `useModalClose`
+  - `useFormAndValidation`
+- Helper functions for formatting and logic
+
+### Storage
+- Local storage for user data and saved articles
+
+### Linting
+- ESLint for clean, consistent code
+
+---
+
+## 🚀 Get Started
+
+_Coming soon: instructions for setup and deployment._
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
