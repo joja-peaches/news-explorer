@@ -53,18 +53,3 @@ Created by **Georgia Lloyd** — blending clean code with a passion for beautifu
 
 ### Storage
 - Local storage for user data and saved articles
-
-### Linting
-- ESLint for clean, consistent code
-
----
-
-## 🚀 Get Started
-
-_Coming soon: instructions for setup and deployment._
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
