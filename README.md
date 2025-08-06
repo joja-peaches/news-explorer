@@ -6,6 +6,8 @@ With a clean design and user-friendly interface, NewsExplorer combines functiona
 
 > Built by **Georgia Lloyd**, this project showcases a blend of full-stack development and a passion for beautiful design.
 
+Visit the deployed page [here](https://joja-peaches.github.io/news-explorer/) 
+
 ---
 
 ## ✨ Features
@@ -53,18 +55,3 @@ Created by **Georgia Lloyd** — blending clean code with a passion for beautifu
 
 ### Storage
 - Local storage for user data and saved articles
-
-### Linting
-- ESLint for clean, consistent code
-
----
-
-## 🚀 Get Started
-
-_Coming soon: instructions for setup and deployment._
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
