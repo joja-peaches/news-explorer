@@ -45,7 +45,7 @@
 }
 
 .modal__close-button {
-    background-image: url('/src/assets/white-close.png');
+    background-image: url('/src/assets/white-close.svg');
     background-repeat: no-repeat;
     background-size: cover;
     background-color: transparent;
@@ -137,6 +137,10 @@
 .modal__alternative-button-text {
     color: #000;
     margin: 0;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
 }
 
 .modal__alternative-button {
@@ -147,6 +151,20 @@
     border: none;
 }
 
+.modal__success-sign-in {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    background-color: transparent;
+    border: none;
+    color: #2F71E5;
+    cursor: pointer;
+    align-self: flex-start;
+    margin-top: -8px;
+    padding: 0 0 23px;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -154,7 +172,7 @@ input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 3rem white inset !important;
 }
 
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 481px) {
     .modal {
         width: 320px;
         height: 100%;

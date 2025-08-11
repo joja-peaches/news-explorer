@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import "./Navigation.css";
 import signOutLight from "../../assets/light-logout.svg";
-import signOutDark from "../../assets/dark-logout.png";
+import signOutDark from "../../assets/dark-logout.svg";
 
 function Navigation({
   isLoggedIn,
@@ -130,7 +130,7 @@ function Navigation({
   }
   return (
     <nav className="navigation">
-      <div
+      <nav
         className={`navigation__link-container ${
           location.pathname === "/saved-news"
             ? "navigation__link-container__saved-news"
@@ -162,7 +162,7 @@ function Navigation({
         >
           {elementsToRender}
         </div>
-      </div>
+      </nav>
     </nav>
   );
 }

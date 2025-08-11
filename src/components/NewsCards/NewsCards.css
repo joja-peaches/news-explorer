@@ -1,9 +1,10 @@
 .news-cards {
-    width: 1440px;
-    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
     background-color: #F5F6F7;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .news-cards__title {
@@ -12,17 +13,21 @@
     line-height: 46px;
     font-weight: 400;
     color: #1A1B22;
-    margin: 80px 0 64px 124px;
+    align-self: flex-start;
+    margin: 0;
+    padding: 80px 104px 64px;
+    width: 100%;
 }
 
 .news-cards__cards {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(175px, 1fr));
     gap: 16px;
-    align-self: center;
-    margin: 0 0 64px;
-    max-width: 1232px;
-    flex-wrap: wrap;
     list-style: none;
+    padding: 0 104px;
+    box-sizing: border-box;
+    margin: 0 0 56px;
+    width: 100%;
 }
 
 .news-cards__button {
@@ -47,20 +52,21 @@
 
 @media screen and (max-width: 769px) {
     .news-cards {
-        width: 768px;
-        height: auto;
+        max-width: 768px;
         column-gap: 8px;
     }
 
     .news-cards__cards {
-        margin: 0 auto;
-        padding: 20px 0 20px;
-        justify-content: center;
+        grid-template-columns: repeat(3, minmax(100px, 1fr));
+        gap: 8px;
+        padding: 20px 40px 32px;
+        margin: 0;       
     }
 
     .news-cards__title {
         font-size: 30px;
-        margin: 40px 0 32px 40px;
+        padding: 0;
+        margin: 40px 0 12px 40px;
     }
 
     .news-cards__button {
@@ -70,17 +76,21 @@
     }
 }
 
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 481px) {
     .news-cards {
-        width: 320px;
+        width: 480px;
         height: auto;
         box-sizing: border-box;
     }
 
     .news-cards__cards {
-        padding: 24px 16px 12px;
+        max-width: 480px;
+        padding: 0 16px 12px; 
         row-gap: 15px;
         background-color: #F5F6F7;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .news-cards__title {
@@ -90,8 +100,10 @@
     }
 
     .news-cards__button {
-        width: 288px;
+        width: 96vw;
+        margin: 16px 16px 24px;
+        box-sizing: border-box;
         height: 54px;
-        margin: 0 0 24px;
+        justify-self: center;
     }
 }

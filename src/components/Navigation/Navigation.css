@@ -1,5 +1,8 @@
 .navigation {
-    width: 1440px;
+    /* width: 1440px; */
+    /* begin edit */
+    min-width: 100%;
+    /* end edit */
     height: 80px;
 }
 
@@ -171,7 +174,7 @@
 
 @media screen and (max-width: 769px) {
     .navigation {
-        width: 768px;
+        max-width: 768px;
     }
 
     .navigation__link-container {
@@ -208,7 +211,7 @@
     }
 }
 
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 576px) {
     .navigation {
         width: 320px;
         height: 56px;

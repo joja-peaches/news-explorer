@@ -11,7 +11,7 @@ import Footer from "../Footer/Footer";
 import SignUpModal from "../SignUpModal/SignUpModal";
 import SignInModal from "../SignInModal/SignInModal";
 import SuccessModal from "../SuccessModal/SuccessModal";
-import HamburgerModal from "../HamburgerModal/HamburgerModal";
+import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 import ProtectedRoute from "../ProtectedRoute";
 
 function App() {
@@ -253,6 +253,7 @@ function App() {
         <Footer />
         <SuccessModal
           isOpen={activeModal === "success"}
+          name="success"
           onClose={closeActiveModal}
           handleSignInClick={handleSignInClick}
         />
@@ -278,7 +279,7 @@ function App() {
           handleSignInSubmit={handleSignInSubmit}
           handleSignUpClick={handleSignUpClick}
         />
-        <HamburgerModal
+        <HamburgerMenu
           isOpen={activeModal === "hamburger"}
           onClose={closeActiveModal}
           name="signIn"

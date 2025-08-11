@@ -35,12 +35,12 @@
 
 @media screen and (max-width: 769px) {
     .not-found {
-        width: 768px;
+        max-width: 768px;
     }
 }
 
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 481px) {
     .not-found {
-        width: 320px;
+        max-width: 480px;
     }
 }

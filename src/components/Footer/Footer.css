@@ -2,7 +2,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 1440px;
+    /* width: 1440px; */
+    /* begin edit */
+    min-width: 100%;
+    /* end edit */
     box-sizing: border-box;
     height: 80px;
     padding: 0 104px;
@@ -36,13 +39,14 @@
     font-weight: 400;
     color: #1A1B22;
     padding: 0 14px 0 0;
+    text-decoration: none;
 }
 
 .footer__navigation__github {
     height: 20px;
     width: 20px;
     cursor: pointer;
-    background-image: url("../../assets/github-logo.png");
+    background-image: url("../../assets/github-logo.svg");
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -51,7 +55,7 @@
     height: 20px;
     width: 20px;
     cursor: pointer;
-    background-image: url("../../assets/facebook-logo.png");
+    background-image: url("../../assets/facebook-logo.svg");
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -59,8 +63,13 @@
 @media screen and (max-width: 769px) {
     .footer {
         height: 64px;
-        width: 768px;
+        max-width: 768px;
         padding: 0 40px;
+    }
+
+    .footer__copyright {
+        width: auto;
+        padding: 0 20px 0 0;
     }
 
     .footer__navigation__facebook {
@@ -71,26 +80,23 @@
     }
 }
 
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 481px) {
     .footer {
+        flex-direction: column-reverse;
         height: 176px;
-        width: 320px;
-        padding: 0 16px 0;
-        position: relative;
+        max-width: 480px;
+        padding: 20px 16px 0;
     }
 
     .footer__copyright {
-        position: absolute;
         width: 288px;
-        bottom: 22px;
         margin: 0;
+        padding: 0 0 16px;
     }
 
     .footer__navigation {
         align-items: flex-start;
         column-gap: 16px;
-        position: absolute;
-        top: 20px;
     }
 
     .footer__navigation__link-container {
@@ -104,13 +110,15 @@
         padding: 0;
     }
 
+    .footer__navigation-link-text {
+        margin: 0;
+    }
+
     .footer__navigation__facebook {
         height: 20px;
         width: 20px;
         background-size: cover;
-        background-image: url("../../assets/facebook-logo.png");
+        background-image: url("../../assets/facebook-logo.svg");
         margin-left: 10px;
     }
-
-
 }

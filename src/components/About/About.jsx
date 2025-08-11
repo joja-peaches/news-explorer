@@ -3,14 +3,14 @@ import georgia from "../../assets/georgia-lloyd-headshot.jpg";
 
 function About() {
   return (
-    <article className="about">
+    <section className="about">
       <img
         src={georgia}
         alt="Headshot of Georgia Lloyd"
         className="about__portrait"
       />
       <section className="about__description">
-        <h1 className="about__title">About the author</h1>
+        <h2 className="about__title">About the author</h2>
         <p className="about__text">
           Georgia Lloyd is a full stack web developer with a love for clean
           design and beautiful aesthetics. With a background in event and
@@ -23,7 +23,7 @@ function About() {
           time with her cat and dog, playing piano, and making art.
         </p>
       </section>
-    </article>
+    </section>
   );
 }
 

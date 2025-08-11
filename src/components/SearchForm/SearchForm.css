@@ -74,7 +74,6 @@
 @media screen and (max-width: 769px) {
     .search__form {
         padding: 0 0 48px;
-        /* position: static; */
         display: flex;
         flex-direction: column;
         row-gap: 16px;
@@ -88,11 +87,10 @@
     .search__form__submit {
         width: 160px;
         height: 56px;
-        /* position: static; */
     }
 }
 
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 481px) {
     .search__form {
         padding: 122px 0 0;
         bottom: 0px;

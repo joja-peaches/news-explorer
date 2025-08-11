@@ -1,4 +1,8 @@
 .success-modal {
+    
+}
+
+/* .success-modal {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -32,7 +36,7 @@
 }
 
 .success-modal__close-button {
-    background-image: url('/src/assets/white-close.png');
+    background-image: url('/src/assets/white-close.sv      g');
     background-repeat: no-repeat;
     background-size: cover;
     background-color: transparent;
@@ -65,4 +69,4 @@
     border: none;
     cursor: pointer;
     background-color: transparent;
-}
+} */

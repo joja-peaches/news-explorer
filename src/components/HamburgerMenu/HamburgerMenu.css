@@ -1,4 +1,4 @@
-.hamburger-modal {
+.hamburger-menu {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -17,11 +17,11 @@
     padding: 0;
 }
 
-.hamburger-modal_opened {
+.hamburger-menu_opened {
     visibility: visible;
 }
 
-.hamburger-modal__container {
+.hamburger-menu__container {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -33,7 +33,7 @@
     padding: 0 16px 24px;
 }
 
-.hamburger-modal__heading {
+.hamburger-menu__heading {
     height: 56px;
     width: 320px;
     color: red;
@@ -49,7 +49,7 @@
     align-items: center;
 }
 
-.hamburger-modal__logo {
+.hamburger-menu__logo {
     margin: 0;
     font-family: 'RobotoSlab', Georgia, 'Times New Roman', Times, serif;
     font-size: 16px;
@@ -59,8 +59,8 @@
     padding-left: 16px;
 }
 
-.hamburger-modal__close-button {
-    background-image: url('/src/assets/white-close.png');
+.hamburger-menu__close-button {
+    background-image: url('/src/assets/white-close.svg');
     background-repeat: no-repeat;
     background-size: cover;
     background-color: transparent;
@@ -71,7 +71,7 @@
     margin-right: 16px;
 }
 
-.hamburger-modal__title {
+.hamburger-menu__title {
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
     font-weight: 500;
     font-size: 18px;
@@ -80,7 +80,7 @@
     margin: 0;
 }
 
-.hamburger-modal__sign-in-out {
+.hamburger-menu__sign-in-out {
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
     font-weight: 500;
     font-size: 18px;
