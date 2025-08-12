@@ -13,6 +13,8 @@ import SignInModal from "../SignInModal/SignInModal";
 import SuccessModal from "../SuccessModal/SuccessModal";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 import ProtectedRoute from "../ProtectedRoute";
+import Preloader from "../Preloader/Preloader";
+import NotFound from "../NotFound/NotFound";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);

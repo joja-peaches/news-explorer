@@ -28,7 +28,7 @@ function ModalWithForm({
 
   if (name === "success") {
     return (
-      <dialog open={isOpen} className={`modal ${isOpen ? "modal_opened" : ""}`}>
+      <dialog open={isOpen} className={`modal ${isOpen ? "modal--opened" : ""}`}>
         <div className="modal__form">
           <h3 className="modal__title">{title}</h3>
           <button className="modal__close-button" onClick={onClose} />
@@ -39,7 +39,7 @@ function ModalWithForm({
   }
 
   return (
-    <dialog className={`modal ${isOpen ? "modal_opened" : ""}`}>
+    <dialog className={`modal ${isOpen ? "modal--opened" : ""}`}>
       <form
         className="modal__form"
         method="get"

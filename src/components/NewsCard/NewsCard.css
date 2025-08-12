@@ -30,11 +30,11 @@
     background-image: url('/src/assets/bookmark-marked.svg');
 }
 
-.news-card__save-button__saved {
+.news-card__save-button--saved {
     background-image: url('/src/assets/bookmark-marked.svg');
 }
 
-.news-card__save-button__saved:hover {
+.news-card__save-button--saved:hover {
     background-image: url('/src/assets/bookmark-marked.svg');
 }
 
@@ -103,7 +103,7 @@
     visibility: hidden;
 }
 
-.news-card__remove-button_visible {
+.news-card__remove-button--visible {
     visibility: visible;
 }
 
@@ -127,14 +127,13 @@
     visibility: hidden;
 }
 
-.news-card__sign-in-button_visible {
+.news-card__sign-in-button--visible {
     visibility: visible;
 }
 
 .news-card__image {
     width: 100%;
     height: 272px;
-    /* border-radius: 16px 16px 0 0; */
     background-color: #F5F6F7;
     object-fit: cover;
 }
@@ -143,7 +142,7 @@
     padding: 20px 24px 24px;
 }
 
-.news-card__container__date {
+.news-card__date {
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
     font-size: 18px;
     line-height: 24px;
@@ -153,7 +152,7 @@
     padding: 0 0 12px;
 }
 
-.news-card__container__title {
+.news-card__title {
     font-family: 'RobotoSlab', Georgia, 'Times New Roman', Times, serif;
     font-size: 26px;
     line-height: 30px;
@@ -169,7 +168,7 @@
     text-overflow: ellipsis;
 }
 
-.news-card__container__text {
+.news-card__text {
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
     font-size: 16px;
     line-height: 22px;
@@ -187,7 +186,7 @@
     text-overflow: ellipsis;
 }
 
-.news-card__container__source {
+.news-card__source {
     font-family: 'RobotoSlab', Georgia, 'Times New Roman', Times, serif;
     font-size: 16px;
     line-height: 20px;
@@ -215,7 +214,7 @@
         height: 150px;
     }
 
-    .news-card__container__title {
+    .news-card__title {
         font-size: 22px;
         line-height: 24px;
         margin: 0 0 10px;
@@ -225,7 +224,7 @@
         -webkit-line-clamp: 3;
     }
 
-    .news-card__container__text {
+    .news-card__text {
         font-size: 16px;
         max-width: 192px;
         max-height: 88px;
@@ -265,11 +264,13 @@
 
 @media screen and (max-width: 481px) {
     .news-card {
-        width: 288px;
+        width: 92vw;
+        box-sizing: border-box;
+        max-width: 480px;
         height: 100%;
     }
 
-    .news-card__container__title {
+    .news-card__title {
         margin: 0 0 14px;
         max-width: 256px;
         height: 48px;
@@ -278,15 +279,16 @@
     }
 
     .news-card__image {
-        width: 288px;
+        width: 100%;
+        max-width: 448px;
         height: 196px;
     }
 
-    .news-card__container__date {
+    .news-card__date {
         padding: 0 0 10px;
     }
 
-    .news-card__container__text {
+    .news-card__text {
         max-width: 256px;
         margin: 0 0 31px;
     }

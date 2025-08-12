@@ -20,15 +20,15 @@ function SearchForm({ handleSearch }) {
       <form onSubmit={handleSearchSubmit} className="search__form">
         <input
           type="search"
-          className="search__form__input"
+          className="search__input"
           placeholder="Enter topic"
           value={searchQuery}
           onChange={(e) => {setSearchQuery(e.target.value);
             searchQuery && setIsError("");
           }}
         />
-        <button className="search__form__submit">Search</button>
-        {isError && <p className="search__form__error">{isError}</p>}
+        <button className="search__submit">Search</button>
+        {isError && <p className="search__error">{isError}</p>}
       </form>
     </search>
   );

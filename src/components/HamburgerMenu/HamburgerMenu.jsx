@@ -18,7 +18,7 @@ function HamburgerMenu({
     elementsToRender = (
       <button
         onClick={handleSignInClick}
-        className="hamburger-menu__sign-in-out"
+        className="hamburger-menu__button"
       >
         {submitText}
       </button>
@@ -33,7 +33,7 @@ function HamburgerMenu({
         </Link>
         <button
           onClick={handleSignOut}
-          className="hamburger-menu__sign-in-out"
+          className="hamburger-menu__button"
         >Sign Out</button>
       </>
     );
@@ -41,7 +41,7 @@ function HamburgerMenu({
 
   return (
     <dialog
-      className={`hamburger-menu ${isOpen ? "hamburger-menu_opened" : ""}`}
+      className={`hamburger-menu ${isOpen ? "hamburger-menu--opened" : ""}`}
     >
       <div className="hamburger-menu__container">
         <div className="hamburger-menu__heading">

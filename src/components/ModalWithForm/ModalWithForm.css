@@ -16,7 +16,7 @@
     height: 100%;
 }
 
-.modal_opened {
+.modal--opened {
     visibility: visible;
 }
 
@@ -172,9 +172,15 @@ input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 3rem white inset !important;
 }
 
+@media screen and (max-width: 769px) {
+    .modal--opened {
+        padding: 0;
+    }
+}
+
 @media screen and (max-width: 481px) {
     .modal {
-        width: 320px;
+        width: 100%;
         height: 100%;
         box-sizing: border-box;
     }
@@ -186,23 +192,19 @@ input:-webkit-autofill:active {
 
     .modal__form {
         row-gap: 22px;
-        width: 320px;
+        width: 100%;
         height: 100%;
         padding: 16px 17px;
-        top: 56px;
+        margin: 66px 0 0;
         row-gap: 0px;
-    }
-
-    .modal_opened {
-        padding: 0;
     }
 
     .modal__close-button {
         background-color: transparent;
         width: 24px;
         height: 24px;
-        top: -40px;
-        right: 16px ;
+        top: -44px;
+        right: 16px;
         z-index: 5;
         right: 16 px;
         cursor: pointer;
@@ -210,10 +212,11 @@ input:-webkit-autofill:active {
 
     .modal__label {
         margin: 0;
+                width: 100%;
     }
 
     .modal__input {
-        width: 288px;
+                width: 100%;
         padding: 8px 0 10px;
         margin: 0 0 18px;
     }
@@ -228,7 +231,7 @@ input:-webkit-autofill:active {
     }
 
     .modal__submit-button {
-        width: 288px;
+        width: 100%;
         margin: 5px 0 0;
     }
 }

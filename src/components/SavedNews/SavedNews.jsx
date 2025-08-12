@@ -41,7 +41,7 @@ function SavedNews({
       </h3>
       <p className="saved-news__keywords">
         By keywords:{" "}
-        <span className="saved-news__keywords-bold">{keywordsDisplay}</span>
+        <span className="saved-news__keywords--bold">{keywordsDisplay}</span>
       </p>
       <article className="saved-news__articles">
         {savedArticles.length > 0 ? (
@@ -68,7 +68,7 @@ function SavedNews({
         ) : (
           <p
             className={`saved-news__empty ${
-              savedArticles.length === 0 ? "" : "saved-news__empty-visible"
+              savedArticles.length === 0 ? "" : "saved-news__empty--visible"
             }`}
           >
             No saved articles yet.

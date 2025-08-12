@@ -78,7 +78,7 @@
 
 @media screen and (max-width: 481px) {
     .news-cards {
-        width: 480px;
+        max-width: 480px;
         height: auto;
         box-sizing: border-box;
     }

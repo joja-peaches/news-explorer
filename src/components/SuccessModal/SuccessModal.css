@@ -20,7 +20,7 @@
     height: 100%;
 }
 
-.success-modal_opened {
+.success-modal--opened {
     visibility: visible;
 }
 

@@ -59,6 +59,7 @@
 
     .header__text-container {
         padding: 38px 0 0;
+
     }
 
     .header__subtitle {
@@ -68,13 +69,15 @@
 
     .header__saved-news {
         height: 66px;
+
     }
 }
 
 @media screen and (max-width: 481px) {
     .header {
-        /* width: 320px; */
         height: 536px;
+        width: 100vw;
+        max-width: 480px;
     }
 
     .header__saved-news {
@@ -82,19 +85,23 @@
     }
 
     .header__text-container {
-        padding: 30px 16px 0 19px;
-        /* width: 320px; */
+        padding: 30px 0 0;
+        width: 92vw;
+        max-width: 480px;
     }
 
     .header__title {
-        /* width: 285px; */
         font-size: 36px;
         line-height: 40px;
         padding: 0 0 16px;
+        width: 92vw;
+        max-width: 480px;
     }
 
     .header__subtitle {
         font-size: 18px;
         padding: 0;
+        width: 92vw;
+        max-width: 480px;
     }
 }

@@ -48,7 +48,7 @@ const cleanedKeyword = cleanKeyword(keyword || "Uncategorized");
         <button
           onClick={handleSignInClick}
           className={`news-card__sign-in-button ${
-            isSaveClicked ? "news-card__sign-in-button_visible" : ""
+            isSaveClicked ? "news-card__sign-in-button--visible" : ""
           }`}
         >
           Sign in to save articles
@@ -72,7 +72,7 @@ const cleanedKeyword = cleanKeyword(keyword || "Uncategorized");
         }
         className={`news-card__save-button ${
           savedArticles.some((a) => a.url === url)
-            ? "news-card__save-button__saved"
+            ? "news-card__save-button--saved"
             : ""
         }`}
       />
@@ -99,7 +99,7 @@ const cleanedKeyword = cleanKeyword(keyword || "Uncategorized");
             })
           }
           className={`news-card__remove-button ${
-            isTrashClicked ? "news-card__remove-button_visible" : ""
+            isTrashClicked ? "news-card__remove-button--visible" : ""
           }`}
         >
           Remove from saved
@@ -119,10 +119,10 @@ const cleanedKeyword = cleanKeyword(keyword || "Uncategorized");
       {elementsToRender}
       <img src={imageUrl} alt={altText} className="news-card__image" />
       <div className="news-card__container">
-        <p className="news-card__container__date">{formattedDate}</p>
-        <h3 className="news-card__container__title">{title}</h3>
-        <p className="news-card__container__text">{cleanedBlurb}</p>
-        <h4 className="news-card__container__source">{source}</h4>
+        <p className="news-card__date">{formattedDate}</p>
+        <h3 className="news-card__title">{title}</h3>
+        <p className="news-card__text">{cleanedBlurb}</p>
+        <h4 className="news-card__source">{source}</h4>
       </div>
     </article>
   );
