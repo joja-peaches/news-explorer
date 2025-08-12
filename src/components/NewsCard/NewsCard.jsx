@@ -16,18 +16,18 @@ function NewsCard({
   keyword,
   blurb,
   altText,
-  url
+  url,
 }) {
   const [isSaveClicked, setIsSaveClicked] = useState(false);
-  const [isTrashClicked, setIsTrashClicked] = useState(false);
+  // const [isTrashClicked, setIsTrashClicked] = useState(false);
 
   const savedButtonClick = () => {
     setIsSaveClicked(!isSaveClicked);
   };
 
-  const trashButtonClick = () => {
-    setIsTrashClicked(!isTrashClicked);
-  };
+  // const trashButtonClick = () => {
+  //   setIsTrashClicked(!isTrashClicked);
+  // };
 
   const formattedDate = formatDate(date);
 
@@ -37,7 +37,7 @@ function NewsCard({
 
   const cleanedBlurb = cleanBlurb(blurb);
 
-const cleanedKeyword = cleanKeyword(keyword || "Uncategorized");
+  const cleanedKeyword = cleanKeyword(keyword || "Uncategorized");
 
   const location = useLocation();
   let elementsToRender;
@@ -82,10 +82,6 @@ const cleanedKeyword = cleanKeyword(keyword || "Uncategorized");
       <>
         <button className="news-card__category">{cleanedKeyword}</button>
         <button
-          onClick={trashButtonClick}
-          className="news-card__trash-button"
-        />
-        <button
           onClick={() =>
             handleRemoveSaved({
               title,
@@ -98,12 +94,9 @@ const cleanedKeyword = cleanKeyword(keyword || "Uncategorized");
               keyword,
             })
           }
-          className={`news-card__remove-button ${
-            isTrashClicked ? "news-card__remove-button--visible" : ""
-          }`}
-        >
-          Remove from saved
-        </button>
+          className="news-card__trash-button"
+        />
+        <button className="news-card__remove-button">Remove from saved</button>
       </>
     );
   }

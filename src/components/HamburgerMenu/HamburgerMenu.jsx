@@ -26,8 +26,8 @@ function HamburgerMenu({
   } else {
     elementsToRender = (
       <>
-        <Link to="/saved-news">
-          <h3 className="hamburger-menu__title" onClick={onClose}>
+        <Link className="hamburger-menu__link-wrapper" to="/saved-news">
+          <h3 className="hamburger-menu__link" onClick={onClose}>
             Saved articles
           </h3>
         </Link>
@@ -48,8 +48,8 @@ function HamburgerMenu({
           <p className="hamburger-menu__logo">NewsExplorer</p>
           <button className="hamburger-menu__close-button" onClick={onClose} />
         </div>
-        <Link to="/">
-          <h3 className="hamburger-menu__title" onClick={onClose}>
+        <Link className="hamburger-menu__link-wrapper" to="/">
+          <h3 className="hamburger-menu__link" onClick={onClose}>
             Home
           </h3>
         </Link>

@@ -35,10 +35,10 @@ function SavedNews({
 
   return (
     <section className="saved-news">
-      <h2 className="saved-news__title">Saved Articles</h2>
-      <h3 className="saved-news__subtitle">
+      <h1 className="saved-news__title">Saved Articles</h1>
+      <h2 className="saved-news__subtitle">
         {name}, you have {numberSaved} saved articles
-      </h3>
+      </h2>
       <p className="saved-news__keywords">
         By keywords:{" "}
         <span className="saved-news__keywords--bold">{keywordsDisplay}</span>

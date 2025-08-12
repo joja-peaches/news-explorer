@@ -173,6 +173,10 @@ input:-webkit-autofill:active {
 }
 
 @media screen and (max-width: 769px) {
+    .modal {
+        padding: 0;
+    }
+
     .modal--opened {
         padding: 0;
     }

@@ -103,7 +103,7 @@
     visibility: hidden;
 }
 
-.news-card__remove-button--visible {
+.news-card__trash-button:hover + .news-card__remove-button {
     visibility: visible;
 }
 
@@ -259,6 +259,24 @@
     .news-card__remove-button {
         top: 8px;
         left: 8px;
+    }
+}
+
+@media screen and (max-width: 676px) {
+    .news-card {
+        width: 100%;
+        max-width: 333px;
+        min-height: 420px;
+    }
+
+    .news-card__container {
+        padding: 16px 15px;
+    }
+
+    .news-card__image {
+        width: 100%;
+        max-width: 333px;
+        height: 150px;
     }
 }
 

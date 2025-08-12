@@ -9,7 +9,7 @@
     border: none;
     background-color: rgba(0, 0, 0, 0.5);
     width: 100vw;
-    max-width: 575px;
+    max-width: 676px;
     height: 100%;
     padding: 0;
 }
@@ -34,7 +34,7 @@
 .hamburger-menu__heading {
     height: 56px;
     width: 100vw;
-    max-width: 575px;
+    max-width: 676px;
     border-bottom: #c4c4c4;
     border-style: solid;
     border-width: 1px;
@@ -69,7 +69,11 @@
     margin-right: 16px;
 }
 
-.hamburger-menu__title {
+.hamburger-menu__link-wrapper {
+    text-decoration: none;
+}
+
+.hamburger-menu__link {
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
     font-weight: 500;
     font-size: 18px;
@@ -77,6 +81,7 @@
     color: #fff;
     margin: 0;
     padding-left: 16px;
+    text-decoration: none;
 }
 
 .hamburger-menu__button {

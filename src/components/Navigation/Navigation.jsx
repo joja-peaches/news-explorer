@@ -16,58 +16,32 @@ function Navigation({
   const location = useLocation();
   let elementsToRender;
   let hamburgerToRender;
-  let hamburgerLineClass;
 
-  if (location.pathname === "/saved-news" && activeModal === "") {
-    hamburgerLineClass =
-      "navigation__hamburger-line navigation__hamburger-line--dark";
-  } else if (location.pathname === "/" && activeModal === "") {
-    hamburgerLineClass = "navigation__hamburger-line";
-  } else if (activeModal === "signIn" || activeModal === "signUp") {
-    hamburgerLineClass = "navigation__hamburger-line-hidden";
-  }
-
-  if (
-    (activeModal === "signIn" && location.pathname === "/") ||
-    (activeModal === "signUp" && location.pathname === "/")
-  ) {
-    hamburgerToRender = (
-      <div
-        className="navigation__hamburger-menu navigation__hamburger-menu--hidden"
-        onClick={handleHamburgerClick}
-      >
-        <hr className="navigation__hamburger-line" />
-        <hr className="navigation__hamburger-line" />
-      </div>
-    );
-  } else if (
-    (activeModal === "signIn" && location.pathname === "/saved-news") ||
-    (activeModal === "signUp" && location.pathname === "/saved-news")
-  ) {
-    hamburgerToRender = (
-      <div
-        className="navigation__hamburger-menu navigation__hamburger-menu--hidden"
-        onClick={handleHamburgerClick}
-      >
-        <hr className="navigation__hamburger-line navigation__hamburger-line--dark" />
-        <hr className="navigation__hamburger-line navigation__hamburger-line--dark" />
-      </div>
-    );
-  } else if (activeModal === "hamburger") {
+  if (activeModal === "hamburger") {
     hamburgerToRender = (
       <div
         className="navigation__hamburger-menu--hidden"
         onClick={handleHamburgerClick}
       ></div>
     );
-  } else {
+  } else if (activeModal === "" && location.pathname === "/") {
     hamburgerToRender = (
       <div
         className="navigation__hamburger-menu"
         onClick={handleHamburgerClick}
       >
-        <hr className={hamburgerLineClass} />
-        <hr className={hamburgerLineClass} />
+        <hr className="navigation__hamburger-line" />
+        <hr className="navigation__hamburger-line" />
+      </div>
+    );
+  } else if (activeModal === "" && location.pathname === "/saved-news") {
+    hamburgerToRender = (
+      <div
+        className="navigation__hamburger-menu"
+        onClick={handleHamburgerClick}
+      >
+        <hr className="navigation__hamburger-line navigation__hamburger-line--dark" />
+        <hr className="navigation__hamburger-line navigation__hamburger-line--dark" />
       </div>
     );
   }

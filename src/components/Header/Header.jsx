@@ -38,7 +38,7 @@ function Header({
   return (
     <header
       className={`header ${
-        location.pathname === "/saved-news" ? "header__saved-news" : ""
+        location.pathname === "/saved-news" ? "header--saved-news" : ""
       }`}
     >
       <Navigation

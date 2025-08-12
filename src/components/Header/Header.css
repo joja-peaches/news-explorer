@@ -1,5 +1,5 @@
 .header {
-    width: 100vw;
+    width: 100%;
     max-width: 1440px;
     height: 576px;
     border: 1px;
@@ -10,7 +10,7 @@
     align-items: center;
 }
 
-.header__saved-news {
+.header--saved-news {
     background-image: none;
     background-color: white;
     box-shadow: 0 -1 0 #D1D2D6;
@@ -67,7 +67,7 @@
         padding: 0 0 48px;
     }
 
-    .header__saved-news {
+    .header--saved-news {
         height: 66px;
 
     }
@@ -80,7 +80,7 @@
         max-width: 480px;
     }
 
-    .header__saved-news {
+    .header--saved-news {
         height: 56px;
     }
 
