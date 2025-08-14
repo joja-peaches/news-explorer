@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import "./Navigation.css";
 import signOutLight from "../../assets/light-logout.svg";
-import signOutDark from "../../assets/dark-logout.png";
+import signOutDark from "../../assets/dark-logout.svg";
 
 function Navigation({
   isLoggedIn,
@@ -17,31 +17,31 @@ function Navigation({
   let elementsToRender;
   let hamburgerToRender;
 
-  if (activeModal === "signIn" || activeModal === "signUp") {
+  if (activeModal === "hamburger") {
     hamburgerToRender = (
       <div
-        className="navigation__hamburger-menu"
-        onClick={handleHamburgerClick}
-      >
-        <hr className="navigation__hamburger-menu__line" />
-        <hr className="navigation__hamburger-menu__line" />
-      </div>
-    );
-  } else if (activeModal === "hamburger") {
-    hamburgerToRender = (
-      <div
-        className="navigation__hamburger-menu__hidden"
+        className="navigation__hamburger-menu--hidden"
         onClick={handleHamburgerClick}
       ></div>
     );
-  } else {
+  } else if (activeModal === "" && location.pathname === "/") {
     hamburgerToRender = (
       <div
         className="navigation__hamburger-menu"
         onClick={handleHamburgerClick}
       >
-        <hr className="navigation__hamburger-menu__line" />
-        <hr className="navigation__hamburger-menu__line" />
+        <hr className="navigation__hamburger-line" />
+        <hr className="navigation__hamburger-line" />
+      </div>
+    );
+  } else if (activeModal === "" && location.pathname === "/saved-news") {
+    hamburgerToRender = (
+      <div
+        className="navigation__hamburger-menu"
+        onClick={handleHamburgerClick}
+      >
+        <hr className="navigation__hamburger-line navigation__hamburger-line--dark" />
+        <hr className="navigation__hamburger-line navigation__hamburger-line--dark" />
       </div>
     );
   }
@@ -49,13 +49,10 @@ function Navigation({
   if (!isLoggedIn && location.pathname === "/") {
     elementsToRender = (
       <>
-        <button className="navigation__links__home navigation__links__active">
+        <button className="navigation__home navigation__links--active">
           Home
         </button>
-        <button
-          className="navigation__links__sign-in"
-          onClick={handleSignInClick}
-        >
+        <button className="navigation__sign-in" onClick={handleSignInClick}>
           Sign In
         </button>
         {hamburgerToRender}
@@ -68,8 +65,8 @@ function Navigation({
           <button
             className={
               isActivePage === "home"
-                ? "navigation__links__home navigation__links__active"
-                : "navigation__links__home"
+                ? "navigation__home navigation__links--active"
+                : "navigation__home"
             }
           >
             Home
@@ -79,20 +76,20 @@ function Navigation({
           <button
             className={
               isActivePage === "savedArticles"
-                ? "navigation__links__saved-articles navigation__links__active"
-                : "navigation__links__saved-articles"
+                ? "navigation__saved-articles navigation__links--active"
+                : "navigation__saved-articles"
             }
             onClick={handleSavedArticlesClick}
           >
             Saved articles
           </button>
         </Link>
-        <button className="navigation__links__profile">
+        <button className="navigation__profile">
           Georgia
           <img
             src={signOutLight}
             alt="Sign out icon"
-            className="navigation__links__profile-signout"
+            className="navigation__signout"
             onClick={handleSignOut}
           />
         </button>
@@ -104,23 +101,23 @@ function Navigation({
       <>
         <Link to="/">
           <button
-            className="navigation__links__home navigation__links__home-dark navigation__links__dark"
+            className="navigation__home navigation__home--dark navigation__links--dark"
             onClick={handleHomeClick}
           >
             Home
           </button>
         </Link>
         <Link to="/saved-news">
-          <button className="navigation__links__saved-articles navigation__links__dark navigation__links__active-dark">
+          <button className="navigation__saved-articles navigation__links--dark navigation__saved-articles--active-dark">
             Saved articles
           </button>
         </Link>
-        <button className="navigation__links__profile navigation__links__dark navigation__links__profile-dark">
+        <button className="navigation__profile navigation__links--dark navigation__profile--dark">
           Georgia
           <img
             src={signOutDark}
             alt="Sign out icon"
-            className="navigation__links__signout"
+            className="navigation__signout"
             onClick={handleSignOut}
           />
         </button>
@@ -128,16 +125,17 @@ function Navigation({
       </>
     );
   }
+
   return (
     <nav className="navigation">
-      <div
+      <nav
         className={`navigation__link-container ${
           location.pathname === "/saved-news"
-            ? "navigation__link-container__saved-news"
+            ? "navigation__link-container--saved-news"
             : ""
         } ${
           activeModal === "hamburger"
-            ? "navigation__link-container__hamburger"
+            ? "navigation__link-container--hamburger"
             : ""
         }`}
       >
@@ -146,7 +144,7 @@ function Navigation({
             onClick={handleHomeClick}
             className={`navigation__logo ${
               location.pathname === "/saved-news"
-                ? "navigation__logo__saved-news"
+                ? "navigation__logo--saved-news"
                 : ""
             }`}
           >
@@ -156,13 +154,13 @@ function Navigation({
         <div
           className={`navigation__links ${
             location.pathname === "/" && isLoggedIn
-              ? "navigation__links__signed-in"
+              ? "navigation__links--signed-in"
               : ""
           }`}
         >
           {elementsToRender}
         </div>
-      </div>
+      </nav>
     </nav>
   );
 }

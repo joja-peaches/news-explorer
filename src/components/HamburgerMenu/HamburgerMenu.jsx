@@ -1,0 +1,62 @@
+import { Link } from "react-router-dom";
+import "./HamburgerMenu.css";
+import useModalClose from "../../hooks/useModalClose";
+
+function HamburgerMenu({
+  isOpen,
+  onClose,
+  handleSignInClick,
+  handleSignOut,
+  submitText,
+  isLoggedIn,
+}) {
+  useModalClose(isOpen, onClose);
+
+  let elementsToRender;
+
+  if (!isLoggedIn) {
+    elementsToRender = (
+      <button
+        onClick={handleSignInClick}
+        className="hamburger-menu__button"
+      >
+        {submitText}
+      </button>
+    );
+  } else {
+    elementsToRender = (
+      <>
+        <Link className="hamburger-menu__link-wrapper" to="/saved-news">
+          <h3 className="hamburger-menu__link" onClick={onClose}>
+            Saved articles
+          </h3>
+        </Link>
+        <button
+          onClick={handleSignOut}
+          className="hamburger-menu__button"
+        >Sign Out</button>
+      </>
+    );
+  }
+
+  return (
+    <dialog
+      className={`hamburger-menu ${isOpen ? "hamburger-menu--opened" : ""}`}
+    >
+      <div className="hamburger-menu__container">
+        <div className="hamburger-menu__heading">
+          <p className="hamburger-menu__logo">NewsExplorer</p>
+          <button className="hamburger-menu__close-button" onClick={onClose} />
+        </div>
+        <Link className="hamburger-menu__link-wrapper" to="/">
+          <h3 className="hamburger-menu__link" onClick={onClose}>
+            Home
+          </h3>
+        </Link>
+        {elementsToRender}
+      </div>
+    </dialog>
+  );
+}
+
+export default HamburgerMenu;

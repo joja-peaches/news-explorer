@@ -57,6 +57,7 @@ function SignUpModal({
           name="email"
           id="email-signupr"
           className="modal__input"
+          placeholder="Email"
           onChange={handleChange}
           value={values.email}
           required
@@ -68,6 +69,7 @@ function SignUpModal({
         <input
           type="password"
           name="password"
+          placeholder="Password"
           id="password-signup"
           className="modal__input"
           onChange={handleChange}
@@ -83,6 +85,7 @@ function SignUpModal({
         <input
           type="text"
           name="username"
+          placeholder="Username"
           id="username"
           className="modal__input"
           onChange={handleChange}

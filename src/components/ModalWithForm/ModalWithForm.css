@@ -16,7 +16,7 @@
     height: 100%;
 }
 
-.modal_opened {
+.modal--opened {
     visibility: visible;
 }
 
@@ -45,7 +45,7 @@
 }
 
 .modal__close-button {
-    background-image: url('/src/assets/white-close.png');
+    background-image: url('/src/assets/white-close.svg');
     background-repeat: no-repeat;
     background-size: cover;
     background-color: transparent;
@@ -137,6 +137,10 @@
 .modal__alternative-button-text {
     color: #000;
     margin: 0;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
 }
 
 .modal__alternative-button {
@@ -147,6 +151,20 @@
     border: none;
 }
 
+.modal__success-sign-in {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    background-color: transparent;
+    border: none;
+    color: #2F71E5;
+    cursor: pointer;
+    align-self: flex-start;
+    margin-top: -8px;
+    padding: 0 0 23px;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -154,9 +172,19 @@ input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 3rem white inset !important;
 }
 
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 769px) {
     .modal {
-        width: 320px;
+        padding: 0;
+    }
+
+    .modal--opened {
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 481px) {
+    .modal {
+        width: 100%;
         height: 100%;
         box-sizing: border-box;
     }
@@ -168,23 +196,19 @@ input:-webkit-autofill:active {
 
     .modal__form {
         row-gap: 22px;
-        width: 320px;
+        width: 100%;
         height: 100%;
         padding: 16px 17px;
-        top: 56px;
+        margin: 66px 0 0;
         row-gap: 0px;
-    }
-
-    .modal_opened {
-        padding: 0;
     }
 
     .modal__close-button {
         background-color: transparent;
         width: 24px;
         height: 24px;
-        top: -40px;
-        right: 16px ;
+        top: -44px;
+        right: 16px;
         z-index: 5;
         right: 16 px;
         cursor: pointer;
@@ -192,10 +216,11 @@ input:-webkit-autofill:active {
 
     .modal__label {
         margin: 0;
+                width: 100%;
     }
 
     .modal__input {
-        width: 288px;
+                width: 100%;
         padding: 8px 0 10px;
         margin: 0 0 18px;
     }
@@ -210,7 +235,7 @@ input:-webkit-autofill:active {
     }
 
     .modal__submit-button {
-        width: 288px;
+        width: 100%;
         margin: 5px 0 0;
     }
 }

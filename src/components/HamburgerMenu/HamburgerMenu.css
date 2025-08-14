@@ -1,55 +1,53 @@
-.hamburger-modal {
+.hamburger-menu {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: fixed;
     z-index: 2;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     visibility: hidden;
     border: none;
     background-color: rgba(0, 0, 0, 0.5);
-    width: 100%;
+    width: 100vw;
+    max-width: 676px;
     height: 100%;
     padding: 0;
 }
 
-.hamburger-modal_opened {
+.hamburger-menu--opened {
+    margin: 0;
     visibility: visible;
 }
 
-.hamburger-modal__container {
+.hamburger-menu__container {
     display: flex;
     flex-direction: column;
     position: absolute;
     top: 0px;
-    width: 320px;
+    width: 100%;
     height: auto;
     background-color: #1A1B22;
     box-sizing: border-box;
-    padding: 0 16px 24px;
+    padding: 0 0 24px;
 }
 
-.hamburger-modal__heading {
+.hamburger-menu__heading {
     height: 56px;
-    width: 320px;
-    color: red;
+    width: 100vw;
+    max-width: 676px;
     border-bottom: #c4c4c4;
     border-style: solid;
     border-width: 1px;
-    width: 320px;
     box-sizing: border-box;
     overflow: visible;
     align-self: center;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
 }
 
-.hamburger-modal__logo {
+.hamburger-menu__logo {
     margin: 0;
     font-family: 'RobotoSlab', Georgia, 'Times New Roman', Times, serif;
     font-size: 16px;
@@ -59,8 +57,8 @@
     padding-left: 16px;
 }
 
-.hamburger-modal__close-button {
-    background-image: url('/src/assets/white-close.png');
+.hamburger-menu__close-button {
+    background-image: url('/src/assets/white-close.svg');
     background-repeat: no-repeat;
     background-size: cover;
     background-color: transparent;
@@ -71,22 +69,28 @@
     margin-right: 16px;
 }
 
-.hamburger-modal__title {
+.hamburger-menu__link-wrapper {
+    text-decoration: none;
+}
+
+.hamburger-menu__link {
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
     font-weight: 500;
     font-size: 18px;
     line-height: 56px;
     color: #fff;
     margin: 0;
+    padding-left: 16px;
+    text-decoration: none;
 }
 
-.hamburger-modal__sign-in-out {
+.hamburger-menu__button {
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
     font-weight: 500;
     font-size: 18px;
     line-height: 24px;
     color: #fff;
-    width: 288px;
+    width: 90%;
     height: 56px;
     margin: 22px 0 0;
     border: 1px;
@@ -94,4 +98,5 @@
     border-style: solid;
     cursor: pointer;
     background-color: transparent;
+    align-self: center;
 }
