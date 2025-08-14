@@ -57,10 +57,10 @@
     background-position: center;
 }
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 790px) {
     .footer {
         height: 64px;
-        max-width: 768px;
+        max-width: 790px;
         padding: 0 40px;
     }
 
