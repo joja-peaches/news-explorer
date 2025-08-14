@@ -37,10 +37,10 @@ function Main({
     );
   }
   return (
-    <div className="main">
+    <main className="main">
       {elementsToRender}
       <About />
-    </div>
+    </main>
   );
 }
 

@@ -1,24 +1,29 @@
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./SuccessModal.css";
-import useModalClose from "../../hooks/useModalClose";
 
-function SuccessModal({ isOpen, onClose, handleSignInClick }) {
-  useModalClose(isOpen, onClose);
+function SuccessModal({ isOpen, onClose, name, handleSignInClick }) {
 
   return (
-    <dialog className={`success-modal ${isOpen ? "success-modal_opened" : ""}`}>
-      <div className="success-modal__container">
-        <button className="success-modal__close-button" onClick={onClose} />
-        <h3 className="success-modal__title">
-          Registration successfully completed!
-        </h3>
+    <div className="success-modal">
+      <ModalWithForm
+        isOpen={isOpen}
+        onClose={onClose}
+        title="Registration successfully completed!"
+        submitText=""
+        buttonText=""
+        name={name}
+        handleSignInClick={handleSignInClick}
+        hideSubmitButton={true}
+      >
         <button
+          type="button"
+          className="modal__success-sign-in"
           onClick={handleSignInClick}
-          className="success-modal__sign-in-button"
         >
           Sign in
         </button>
-      </div>
-    </dialog>
+      </ModalWithForm>
+    </div>
   );
 }
 

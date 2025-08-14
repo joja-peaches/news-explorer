@@ -1,5 +1,5 @@
 .navigation {
-    width: 1440px;
+    width: 100%;
     height: 80px;
 }
 
@@ -13,7 +13,7 @@
     padding: 0 104px 0;
 }
 
-.navigation__link-container__saved-news {
+.navigation__link-container--saved-news {
     border-bottom: 1px solid #D1D2D6;
 }
 
@@ -30,7 +30,7 @@
     color: #FFF;
 }
 
-.navigation__logo__saved-news {
+.navigation__logo--saved-news {
     color: #1A1B22;
 }
 
@@ -38,7 +38,7 @@
     display: flex;
 }
 
-.navigation__links__home {
+.navigation__home {
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
     font-weight: 500;
     font-size: 18px;
@@ -53,7 +53,7 @@
     box-sizing: border-box;
 }
 
-.navigation__links__sign-in {
+.navigation__sign-in {
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
     font-weight: 500;
     font-size: 18px;
@@ -78,7 +78,7 @@
     margin-left: 42px;
 }
 
-.navigation__links__saved-articles {
+.navigation__saved-articles {
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
     font-weight: 500;
     font-size: 18px;
@@ -93,7 +93,7 @@
     margin: 0 34px;
 }
 
-.navigation__links__profile {
+.navigation__profile {
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
     font-weight: 500;
     font-size: 18px;
@@ -118,34 +118,34 @@
     visibility: hidden;
 }
 
-.navigation__links__active {
+.navigation__links--active {
     border-bottom: solid 3px #FFF;
     padding: 3px 0 0;
 }
 
-.navigation__links__dark {
+.navigation__links--dark {
     color: #1A1B22;
 }
 
-.navigation__links__home-dark {
+.navigation__home--dark {
     padding-right: 2px;
 }
 
-.navigation__links__active-dark {
+.navigation__saved-articles--active-dark {
     border-bottom: solid 3px #1A1B22;
     padding: 3px 0 0;
     width: 178px;
 }
 
-.navigation__links__profile-dark {
+.navigation__profile--dark {
     border-color: #1A1B22;
 }
 
-.navigation__links__signout {
+.navigation__signout {
     cursor: pointer;
 }
 
-.navigation__links__profile-signout {
+.navigation__signout {
     cursor: pointer;
 }
 
@@ -156,7 +156,7 @@
     justify-content: center;
 }
 
-.navigation__hamburger-menu__line {
+.navigation__hamburger-line {
     width: 16px;
     height: 2px;
     background-color: #fff;
@@ -165,13 +165,13 @@
     display: none;
 }
 
-.navigation__hamburger-menu__line-dark  {
+.navigation__hamburger-line--dark  {
     background-color: #1A1B22;
 }
 
 @media screen and (max-width: 769px) {
     .navigation {
-        width: 768px;
+        max-width: 768px;
     }
 
     .navigation__link-container {
@@ -183,12 +183,12 @@
         height: 66px;
     }
 
-    .navigation__links__home {
+    .navigation__home {
         font-size: 16px;
         height: 66px;
     }
 
-    .navigation__links__sign-in {
+    .navigation__sign-in {
         width: 152px;
         font-size: 16px;
         height: 40px;
@@ -196,21 +196,26 @@
         margin: 0 0 0 16px;
     }
 
-    .navigation__links__saved-articles {
+    .navigation__saved-articles {
         font-size: 16px;
         height: 66px;
         margin: 0 0 0 19px;
     }
 
-    .navigation__links__profile {
+    .navigation__profile {
         font-size: 16px;
         margin: 0 0 0 19px;
     }
+
+    .navigation__hamburger-line {
+        display: none;
+    }
 }
 
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 636px) {
     .navigation {
-        width: 320px;
+        width: 100%;
+        max-width: 635px;
         height: 56px;
     }
 
@@ -220,40 +225,35 @@
 
     .navigation__link-container {
         padding: 16px;
-        height: 56px;
+        height: 66px;
     }
 
-    .navigation__link-container__hamburger {
+    .navigation__link-container--hamburger {
         background-color: #1A1B22;
         box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2); 
     }
 
-    .navigation__links__home {
+    .navigation__home {
         display: none;
     }
 
-    .navigation__links__sign-in {
+    .navigation__sign-in {
         display: none;
     }
 
-    .navigation__links__saved-articles {
+    .navigation__saved-articles {
         display: none;
     }
 
-    .navigation__links__profile {
+    .navigation__profile {
         display: none;
     }
 
-    .navigation__hamburger-menu__hidden {
-        display: none;
-    }
-
-    .navigation__hamburger-menu__line {
+    .navigation__hamburger-menu--hidden {
         display: block;
     }
 
-    .navigation__hamburger-menu__line-hidden {
-        display: none;
+    .navigation__hamburger-line {
+        display: block;
     }
-
 }

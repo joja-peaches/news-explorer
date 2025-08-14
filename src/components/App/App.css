@@ -1,22 +1,22 @@
 .app {
     display: flex;
     flex-direction: column;
+    margin: 0 auto;
     align-items: center;
-    width: 1440px;
+    width: 100%;
+    max-width: 1440px;
+    min-height: 100vh;
+    position: relative;
 }
 
 @media screen and (max-width: 769px) {
     .app {
-        width: 768px;
+        max-width: 768px;
     }
 }
 
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 481px) {
     .app {
-        width: 320px;
+        max-width: 480px;
     }
-
-    /* html, body { overflow-x: hidden; } */
-
-
 }

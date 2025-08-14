@@ -1,21 +1,32 @@
 .about {
     display: flex;
     align-items: center;
-    justify-content: center;;
+    justify-content: center;
     height: 624px;
-    width: 1440px;
+    width: 100%;
+    max-width: 1440px;
+    box-sizing: border-box;
+    padding: 0 clamp(16px, 10vw, 104px);
     column-gap: 56px;
+    margin: 0 auto;
 }
 
 .about__portrait {
-    width: 464px;
-    height: 464px;
+    box-sizing: border-box;
+    width: clamp(200px, 42vw, 464px);
+    height: clamp(200px, 42vw, 464px);
+    max-width: 464px;
+    max-height: 464px;
     border-radius: 1000px;
+    object-fit: cover;
 }
 
 .about__description {
     display: flex;
-    flex-direction: column;;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 600px;
 }
 
 .about__title {
@@ -34,15 +45,21 @@
     font-weight: 400;
     color: #1A1B22;
     margin: 24px 0 0;
-    width: 600px;
+    width: 100%;
+    max-width: 600px;
 }
 
 @media screen and (max-width: 769px) {
     .about {
-        height: 354px;
-        width: 768px;
+        min-height: 354px;
+        height: auto;
+        max-width: 768px;
         column-gap: 32px;
-        margin: 0 0 16px;
+        margin: 0 0 20px;
+    }
+
+    .about__description {
+        max-width: 424px;
     }
 
     .about__title {
@@ -52,28 +69,34 @@
 
     .about__text {
         margin: 16px 0 0;
-        width: 424px;
     }
 
     .about__portrait {
-        width: 232px;
-        height: 232px;
+    width: clamp(175px, 30vw, 232px);
+    height: clamp(175px, 30vw, 232px);
     }
 }
 
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 481px) {
     .about {
-        width: 320px;
-        height: 752px;
+        max-width: 480px;
+        height: auto;
         flex-direction: column;
+        margin: 32px 0 0;
+        padding: 0 24px;
     }
 
     .about__title {
-        max-width: 321px;
+        max-width: 481px;
     }
 
     .about__text {
-        margin: 16px 0 0;
-        width: 288px;
+        margin: 16px 0 80px;
+        max-width: 480px;
+    }
+
+    .about__portrait {
+        width: clamp(272px, 90vw, 400px);
+        height: clamp(272px, 90vw, 400px);
     }
 }

@@ -16,18 +16,18 @@ function NewsCard({
   keyword,
   blurb,
   altText,
-  url
+  url,
 }) {
   const [isSaveClicked, setIsSaveClicked] = useState(false);
-  const [isTrashClicked, setIsTrashClicked] = useState(false);
+  // const [isTrashClicked, setIsTrashClicked] = useState(false);
 
   const savedButtonClick = () => {
     setIsSaveClicked(!isSaveClicked);
   };
 
-  const trashButtonClick = () => {
-    setIsTrashClicked(!isTrashClicked);
-  };
+  // const trashButtonClick = () => {
+  //   setIsTrashClicked(!isTrashClicked);
+  // };
 
   const formattedDate = formatDate(date);
 
@@ -37,7 +37,7 @@ function NewsCard({
 
   const cleanedBlurb = cleanBlurb(blurb);
 
-const cleanedKeyword = cleanKeyword(keyword || "Uncategorized");
+  const cleanedKeyword = cleanKeyword(keyword || "Uncategorized");
 
   const location = useLocation();
   let elementsToRender;
@@ -48,7 +48,7 @@ const cleanedKeyword = cleanKeyword(keyword || "Uncategorized");
         <button
           onClick={handleSignInClick}
           className={`news-card__sign-in-button ${
-            isSaveClicked ? "news-card__sign-in-button_visible" : ""
+            isSaveClicked ? "news-card__sign-in-button--visible" : ""
           }`}
         >
           Sign in to save articles
@@ -72,7 +72,7 @@ const cleanedKeyword = cleanKeyword(keyword || "Uncategorized");
         }
         className={`news-card__save-button ${
           savedArticles.some((a) => a.url === url)
-            ? "news-card__save-button__saved"
+            ? "news-card__save-button--saved"
             : ""
         }`}
       />
@@ -81,10 +81,6 @@ const cleanedKeyword = cleanKeyword(keyword || "Uncategorized");
     elementsToRender = (
       <>
         <button className="news-card__category">{cleanedKeyword}</button>
-        <button
-          onClick={trashButtonClick}
-          className="news-card__trash-button"
-        />
         <button
           onClick={() =>
             handleRemoveSaved({
@@ -98,12 +94,9 @@ const cleanedKeyword = cleanKeyword(keyword || "Uncategorized");
               keyword,
             })
           }
-          className={`news-card__remove-button ${
-            isTrashClicked ? "news-card__remove-button_visible" : ""
-          }`}
-        >
-          Remove from saved
-        </button>
+          className="news-card__trash-button"
+        />
+        <button className="news-card__remove-button">Remove from saved</button>
       </>
     );
   }
@@ -119,10 +112,10 @@ const cleanedKeyword = cleanKeyword(keyword || "Uncategorized");
       {elementsToRender}
       <img src={imageUrl} alt={altText} className="news-card__image" />
       <div className="news-card__container">
-        <p className="news-card__container__date">{formattedDate}</p>
-        <h3 className="news-card__container__title">{title}</h3>
-        <p className="news-card__container__text">{cleanedBlurb}</p>
-        <h4 className="news-card__container__source">{source}</h4>
+        <p className="news-card__date">{formattedDate}</p>
+        <h3 className="news-card__title">{title}</h3>
+        <p className="news-card__text">{cleanedBlurb}</p>
+        <h4 className="news-card__source">{source}</h4>
       </div>
     </article>
   );

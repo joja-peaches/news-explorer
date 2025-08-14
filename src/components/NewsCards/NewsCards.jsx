@@ -16,7 +16,7 @@ function NewsCards({
 
   return (
     <section className="news-cards">
-      <h1 className="news-cards__title">Search results</h1>
+      <h2 className="news-cards__title">Search results</h2>
       <ul className="news-cards__cards">
         {newsArticles.slice(0, visibleArticlesCount).map((article) => (
           <li className="news-cards__card" key={article.url}>
