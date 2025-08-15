@@ -28,7 +28,7 @@ Visit the deployed page [here](https://joja-peaches.github.io/news-explorer/)
 
 - **Home Page**: Search Form and About the Author upon landing.
 <p align="center">
-  <img src="https://iili.io/FD5h9fe.jpg" alt="Landing page for NewsExplorer" width="600" />
+  <img src="https://iili.io/FD5hJUb.jpg" alt="Landing page for NewsExplorer" width="600" />
 </p>
 
 - **Search Results**: Search results with option to see more and save articles.
