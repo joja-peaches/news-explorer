@@ -24,6 +24,25 @@ Visit the deployed page [here](https://joja-peaches.github.io/news-explorer/)
 
 ---
 
+## 🖼️ Screenshots
+
+- **Home Page**: Search Form and About the Author upon landing.
+<p align="center">
+  <img src="https://yourdomain.com/screenshot.png](https://iili.io/FD5hJUb.jpg" alt="Landing page for NewsExplorer" width="600" />
+</p>
+
+- **Search Results**: Search results with option to see more and save articles.
+<p align="center">
+  <img src="https://yourdomain.com/screenshot.png](https://iili.io/FD5hJUb.jpg](https://freeimage.host/i/news-explorer-2.FD5h9fe" alt="Searches within NewsExplorer" width="600" />
+</p>
+
+- **Saved Articles**: Save favorite articles to your personal page with option to delete.
+<p align="center">
+  <img src="https://yourdomain.com/screenshot.png](https://iili.io/FD5hJUb.jpg](https://iili.io/FD5h2Jj.jpg" alt="Saved articles page for NewsExplorer" width="600" />
+</p>
+
+---
+
 ## 👩‍💻 About the Author
 
 Created by **Georgia Lloyd** — blending clean code with a passion for beautiful, intuitive interfaces. Learn more about the author within the app.
