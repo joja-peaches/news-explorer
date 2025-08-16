@@ -8,6 +8,8 @@ With a clean design and user-friendly interface, NewsExplorer combines functiona
 
 Visit the deployed page [here](https://joja-peaches.github.io/news-explorer/) 
 
+Watch a video walkthrough [here](https://www.loom.com/share/3640fe0f54cb4761b7e94e6f4e7a793b?sid=f1c0bd1f-eae5-4dc0-a285-79cd37374df1)
+
 ---
 
 ## ✨ Features
